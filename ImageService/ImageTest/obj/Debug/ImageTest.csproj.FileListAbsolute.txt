@@ -1,0 +1,17 @@
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.csprojResolveAssemblyReference.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.csproj.CoreCompileInputs.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageTest.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageTest.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageService.exe
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageService.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageService.exe.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.csproj.CopyComplete
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.pdb

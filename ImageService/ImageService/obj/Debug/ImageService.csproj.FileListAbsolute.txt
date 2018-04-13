@@ -8,3 +8,13 @@ C:\Users\Orian Edri\source\repos\ImageService\ImageService\obj\Debug\ImageServic
 C:\Users\Orian Edri\source\repos\ImageService\ImageService\obj\Debug\ImageService.csproj.CoreCompileInputs.cache
 C:\Users\Orian Edri\source\repos\ImageService\ImageService\obj\Debug\ImageService.exe
 C:\Users\Orian Edri\source\repos\ImageService\ImageService\obj\Debug\ImageService.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.csprojResolveAssemblyReference.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.ImageService.resources
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.ProjectInstaller.resources
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.csproj.GenerateResource.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.csproj.CoreCompileInputs.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.exe
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageService.exe.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageService.exe
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageService.pdb
