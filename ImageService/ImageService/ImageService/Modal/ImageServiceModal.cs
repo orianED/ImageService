@@ -58,7 +58,7 @@ namespace ImageService.Modal {
                 return e.ToString();
             }
             result = true;
-            return "File added succesfully to: " + path;
+            return "File transfer succesfully to: " + path + " and make thumbsnail also!";
         }
 
         public static DateTime GetDateTakenFromImage(string path) {

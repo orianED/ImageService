@@ -11,7 +11,7 @@ namespace UnitTestProject3 {
             bool result;
             string OutputDir = "C:\\Users\\Orian Edri\\Desktop\\ImageServiceDir\\Images";
             IImageServiceModal imageModal = new ImageServiceModal(OutputDir, tumb);
-            string ss = imageModal.AddFile("C:\\Users\\Orian Edri\\Desktop\\ImageServiceDir\\Handler1\\lala.jpg", out result);
+            string ss = imageModal.AddFile("C:\\Users\\Orian Edri\\Desktop\\ImageServiceDir\\Handler1\\ll.jpg", out result);
             Assert.AreEqual(result, true, ss);
         }
     }
