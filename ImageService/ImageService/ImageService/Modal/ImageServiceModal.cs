@@ -19,7 +19,7 @@ namespace ImageService.Modal {
         }
 
         public string AddFile(string path, out bool result) {
-            string newImagePath = "";
+            string newImagePath = "", newThumbImagePath = "";
             string datePath, thumbDatePath;
             string month, year;
 
@@ -35,21 +35,21 @@ namespace ImageService.Modal {
                     month = date.Month.ToString();
                     year = date.Year.ToString();
                     datePath = Path.Combine(m_OutputFolder, year, month);
-                    thumbDatePath = Path.Combine(m_OutputFolder + "\\" + "Thumbnails", year, month);
+                    thumbDatePath = Path.Combine(m_OutputFolder, "Thumbnails", year, month);
 
                     if (!Directory.Exists(datePath)) {
                         Directory.CreateDirectory(datePath);
                     }
                     newImagePath = DuplicateCheck(path, datePath);
-                    File.Copy(path, newImagePath);
+                    File.Move(path, newImagePath);
 
                     if (!Directory.Exists(thumbDatePath)) {
                         Directory.CreateDirectory(thumbDatePath);
                     }
-                    newImagePath = DuplicateCheck(path, thumbDatePath);
-                    Image thumb = Image.FromFile(path);
+                    newThumbImagePath = DuplicateCheck(path, thumbDatePath);
+                    Image thumb = Image.FromFile(newImagePath);
                     thumb = (Image)(new Bitmap(thumb, new Size(this.m_thumbnailSize, this.m_thumbnailSize)));
-                    thumb.Save(newImagePath);
+                    thumb.Save(newThumbImagePath);
                 } else {
                     throw new Exception("File doesn't exists");
                 }
@@ -58,7 +58,6 @@ namespace ImageService.Modal {
                 return e.ToString();
             }
             result = true;
-            File.Delete(path);
             return "File added succesfully to: " + path;
         }
 
@@ -79,7 +78,7 @@ namespace ImageService.Modal {
 
             while (File.Exists(newPath)) {
                 counter++;
-                newPath = newDirPath + "\\" + pathWithoutExt + "(" + counter.ToString() + ")" + ext;
+                newPath = Path.Combine(newDirPath, pathWithoutExt + "(" + counter.ToString() + ")" + ext);
             }
             return newPath;
         }
