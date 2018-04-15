@@ -61,6 +61,7 @@ namespace ImageService.Controller.Handlers {
                 m_dirWatcher.EnableRaisingEvents = false;
                 DirectoryCloseEventArgs directoryCloseArgs = new DirectoryCloseEventArgs(m_path, "Closing handler for: " + m_path);
                 DirectoryClose?.Invoke(this, directoryCloseArgs);
+                m_logging.Log("Closing handler for: " + m_path, MessageTypeEnum.INFO);
             } catch (Exception e1) {
                 m_logging.Log("Failed to closed handler for: " + m_path, MessageTypeEnum.INFO);
             } finally {
