@@ -15,7 +15,6 @@ namespace ImageService.Server {
         #region Members
         private IImageController m_controller;
         private ILoggingService m_logging;
-        private List<DirectoyHandler> m_handlersList;
         #endregion
 
         #region Properties

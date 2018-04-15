@@ -2,6 +2,7 @@
 using ImageService.Modal;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,18 @@ namespace ImageService.Commands {
         }
 
         public string Execute(string[] args, out bool result) {
-            result = true;
-            return " ";
+            try {
+                if (args.Length == 0) {
+                    throw new Exception("No args received!");
+                } else if (File.Exists(args[0])) {
+                    return m_modal.AddFile(args[0], out result);
+                }
+                result = true;
+                return " ";
+            } catch (Exception exeption) {
+                result = false;
+                return exeption.ToString();
+            }
         }
     }
 }

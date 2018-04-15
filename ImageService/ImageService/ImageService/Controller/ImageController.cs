@@ -14,14 +14,21 @@ namespace ImageService.Controller {
         private Dictionary<int, ICommand> commands;
 
         public ImageController(IImageServiceModal modal) {
-            m_modal = modal;                    // Storing the Modal Of The System
-            commands = new Dictionary<int, ICommand>() {
-                // For Now will contain NEW_FILE_COMMAND
-            };
+            m_modal = modal;                                    // Storing the Modal Of The System
+            commands = new Dictionary<int, ICommand>();
+            commands.Add((int)CommandEnum.NewFileCommand, new NewFileCommand(this.m_modal));
         }
         public string ExecuteCommand(int commandID, string[] args, out bool resultSuccesful) {
-            resultSuccesful = true;
-            return "";
+            Task<Tuple<string, bool>> task = new Task<Tuple<string, bool>>(() => {
+                bool result;
+                String str = this.commands[commandID].Execute(args, out result);
+                return Tuple.Create(str, result);
+            });
+            task.Start();
+            task.Wait();
+            Tuple<string, bool> tupleResult = task.Result;
+            resultSuccesful = tupleResult.Item2;
+            return tupleResult.Item1;
         }
     }
 }

@@ -30,6 +30,7 @@ namespace ImageService.Controller.Handlers {
         }
         public void OnCommandRecieved(object sender, CommandRecievedEventArgs e) {
             bool result;
+
             string msg = m_controller.ExecuteCommand(e.CommandID, e.Args, out result);
             if (result) {
                 m_logging.Log(msg, MessageTypeEnum.INFO);
@@ -56,9 +57,15 @@ namespace ImageService.Controller.Handlers {
         }
 
         public void CloseHandler(object sender, DirectoryCloseEventArgs e) {
-            m_dirWatcher.EnableRaisingEvents = false;
-            DirectoryCloseEventArgs directoryCloseArgs = new DirectoryCloseEventArgs(m_path, "Closing handler for: " + m_path);
-            DirectoryClose?.Invoke(this, directoryCloseArgs);
+            try {
+                m_dirWatcher.EnableRaisingEvents = false;
+                DirectoryCloseEventArgs directoryCloseArgs = new DirectoryCloseEventArgs(m_path, "Closing handler for: " + m_path);
+                DirectoryClose?.Invoke(this, directoryCloseArgs);
+            } catch (Exception e1) {
+                m_logging.Log("Failed to closed handler for: " + m_path, MessageTypeEnum.INFO);
+            } finally {
+                m_dirWatcher.Created -= new FileSystemEventHandler(NewEvent);
+            }
         }
         // Implement Here!
     }
