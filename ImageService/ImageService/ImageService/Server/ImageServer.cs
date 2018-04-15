@@ -22,6 +22,11 @@ namespace ImageService.Server {
         public event EventHandler<DirectoryCloseEventArgs> CloseServer;
         #endregion
 
+        /// <summary>
+        /// constructor, start the server and creath hanlers for the directory we need to watch
+        /// </summary>
+        /// <param name="m_controller">The controller.</param>
+        /// <param name="m_logging">The logger.</param>
         public ImageServer(IImageController m_controller, ILoggingService m_logging) {
             this.m_controller = m_controller;
             this.m_logging = m_logging;
@@ -38,6 +43,9 @@ namespace ImageService.Server {
             }
         }
 
+        /// <summary>
+        /// Called when the service closed and closing all the handlers.
+        /// </summary>
         public void OnCloseServer() {
             try {
                 CloseServer?.Invoke(this, null);

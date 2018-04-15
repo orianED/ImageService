@@ -11,10 +11,21 @@ namespace ImageService.Commands {
     public class NewFileCommand : ICommand {
         private IImageServiceModal m_modal;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NewFileCommand"/> class.
+        /// </summary>
+        /// <param name="modal">The modal.</param>
         public NewFileCommand(IImageServiceModal modal) {
             m_modal = modal;            // Storing the Modal
         }
 
+        /// <summary>
+        /// Executes the new file command with the specified arguments.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <param name="result">if set to <c>true</c> [result].</param>
+        /// <returns></returns>
+        /// <exception cref="Exception">No args received!</exception>
         public string Execute(string[] args, out bool result) {
             try {
                 if (args.Length == 0) {

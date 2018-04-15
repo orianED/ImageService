@@ -66,11 +66,11 @@ namespace ImageService {
             logger = new LoggingService();
             logger.MessageRecieved += OnMessage;
             controller = new ImageController(modal);
-            server = new ImageServer(controller, logger);
         }
 
         protected override void OnStart(string[] args) {
             this.logger.Log("On Start", MessageTypeEnum.INFO);
+            server = new ImageServer(controller, logger);
 
             // Update the service state to Start Pending.  
             ServiceStatus serviceStatus = new ServiceStatus();

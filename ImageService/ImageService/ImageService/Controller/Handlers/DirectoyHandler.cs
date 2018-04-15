@@ -24,10 +24,21 @@ namespace ImageService.Controller.Handlers {
 
         public event EventHandler<DirectoryCloseEventArgs> DirectoryClose;              // The Event That Notifies that the Directory is being closed
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DirectoyHandler"/> class.
+        /// </summary>
+        /// <param name="controller">The controller.</param>
+        /// <param name="logging">The logging.</param>
         public DirectoyHandler(IImageController controller, ILoggingService logging) {
             m_controller = controller;
             m_logging = logging;
         }
+
+        /// <summary>
+        /// Called when [command recieved] and call to the execute function.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="CommandRecievedEventArgs"/> instance containing the event data.</param>
         public void OnCommandRecieved(object sender, CommandRecievedEventArgs e) {
             bool result;
 
@@ -39,6 +50,10 @@ namespace ImageService.Controller.Handlers {
             }
         }
 
+        /// <summary>
+        /// Starts the handle directory (initializes the path for the handler and start).
+        /// </summary>
+        /// <param name="dirPath">The directory path.</param>
         public void StartHandleDirectory(string dirPath) {
             m_path = dirPath;
             m_dirWatcher = new FileSystemWatcher();
@@ -48,6 +63,11 @@ namespace ImageService.Controller.Handlers {
             m_logging.Log("Start handle directory: " + m_path, MessageTypeEnum.INFO);
         }
 
+        /// <summary>
+        /// Check if the new event is a picture and if it is, operate the command.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="FileSystemEventArgs"/> instance containing the event data.</param>
         public void NewEvent(object sender, FileSystemEventArgs e) {
             string[] args = new string[] { e.FullPath };
             if (extensions.Contains(Path.GetExtension(e.FullPath).ToLower())) {
@@ -56,6 +76,11 @@ namespace ImageService.Controller.Handlers {
             }
         }
 
+        /// <summary>
+        /// Closes the handler and commit to logger.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="DirectoryCloseEventArgs"/> instance containing the event data.</param>
         public void CloseHandler(object sender, DirectoryCloseEventArgs e) {
             try {
                 m_dirWatcher.EnableRaisingEvents = false;
@@ -68,6 +93,5 @@ namespace ImageService.Controller.Handlers {
                 m_dirWatcher.Created -= new FileSystemEventHandler(NewEvent);
             }
         }
-        // Implement Here!
     }
 }
