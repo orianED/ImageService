@@ -10,30 +10,56 @@ using ImageService.Infrastructure.Enums;
 using ImageService.Logging;
 using ImageService.Logging.Modal;
 using System.Text.RegularExpressions;
+using System.Configuration;
 
-namespace ImageService.Controller.Handlers
-{
-    public class DirectoyHandler : IDirectoryHandler
-    {
+namespace ImageService.Controller.Handlers {
+    public class DirectoyHandler : IDirectoryHandler {
         #region Members
         private IImageController m_controller;              // The Image Processing Controller
         private ILoggingService m_logging;
         private FileSystemWatcher m_dirWatcher;             // The Watcher of the Dir
         private string m_path;                              // The Path of directory
+        private string[] extensions = { ".png", ".jpg", ".bmp", ".gif" };
         #endregion
 
         public event EventHandler<DirectoryCloseEventArgs> DirectoryClose;              // The Event That Notifies that the Directory is being closed
 
-        public void OnCommandRecieved(object sender, CommandRecievedEventArgs e)
-        {
-            throw new NotImplementedException();
+        public DirectoyHandler(IImageController controller, ILoggingService logging) {
+            m_controller = controller;
+            m_logging = logging;
+        }
+        public void OnCommandRecieved(object sender, CommandRecievedEventArgs e) {
+            bool result;
+            string msg = m_controller.ExecuteCommand(e.CommandID, e.Args, out result);
+            if (result) {
+                m_logging.Log(msg, MessageTypeEnum.INFO);
+            } else {
+                m_logging.Log(msg, MessageTypeEnum.FAIL);
+            }
         }
 
-        public void StartHandleDirectory(string dirPath)
-        {
-            throw new NotImplementedException();
+        public void StartHandleDirectory(string dirPath) {
+            m_path = dirPath;
+            m_dirWatcher = new FileSystemWatcher();
+            m_dirWatcher.Path = m_path;
+            m_dirWatcher.Created += new FileSystemEventHandler(NewEvent);
+            m_dirWatcher.EnableRaisingEvents = true;
+            m_logging.Log("Start handle directory: " + m_path, MessageTypeEnum.INFO);
         }
 
+        public void NewEvent(object sender, FileSystemEventArgs e) {
+            string[] args = new string[] { e.FullPath };
+            if (extensions.Contains(Path.GetExtension(e.FullPath).ToLower())) {
+                CommandRecievedEventArgs commandEventArgs = new CommandRecievedEventArgs((int)CommandEnum.NewFileCommand, args, m_path);
+                OnCommandRecieved(this, commandEventArgs);
+            }
+        }
+
+        public void CloseHandler(object sender, DirectoryCloseEventArgs e) {
+            m_dirWatcher.EnableRaisingEvents = false;
+            DirectoryCloseEventArgs directoryCloseArgs = new DirectoryCloseEventArgs(m_path, "Closing handler for: " + m_path);
+            DirectoryClose?.Invoke(this, directoryCloseArgs);
+        }
         // Implement Here!
     }
 }

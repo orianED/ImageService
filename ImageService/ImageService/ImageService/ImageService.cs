@@ -44,6 +44,23 @@ namespace ImageService {
         private static extern bool SetServiceStatus(IntPtr handle, ref ServiceStatus serviceStatus);
 
         public ImageService() {
+           /* InitializeComponent();
+            string eventSourceName = ConfigurationManager.AppSettings.Get("SourceName");
+            string logName = ConfigurationManager.AppSettings.Get("LogName");
+            string outputDir = ConfigurationManager.AppSettings.Get("OutputDir");
+            int thumbnailSize = Int32.Parse(ConfigurationManager.AppSettings.Get("ThumbnailSize"));
+
+            eventLog1 = new System.Diagnostics.EventLog();
+            if (!System.Diagnostics.EventLog.SourceExists(eventSourceName)) {
+                System.Diagnostics.EventLog.CreateEventSource(eventSourceName, logName);
+            }
+            eventLog1.Source = eventSourceName;
+            eventLog1.Log = logName;
+            */
+
+        }
+
+        protected override void OnStart(string[] args) {
             InitializeComponent();
             string eventSourceName = ConfigurationManager.AppSettings.Get("SourceName");
             string logName = ConfigurationManager.AppSettings.Get("LogName");
@@ -56,12 +73,9 @@ namespace ImageService {
             }
             eventLog1.Source = eventSourceName;
             eventLog1.Log = logName;
-
             this.modal = new ImageServiceModal(outputDir, thumbnailSize);
+            this.logger = new LoggingService();
             this.logger.MessageRecieved += OnMessage;
-        }
-
-        protected override void OnStart(string[] args) {
             this.logger.Log("On Start", MessageTypeEnum.INFO);
 
             // Update the service state to Start Pending.  
@@ -101,7 +115,7 @@ namespace ImageService {
         }
 
         public void OnMessage(object sender, MessageRecievedEventArgs e) {
-            eventLog1.WriteEntry(e.Message);
+            eventLog1.WriteEntry(e.Status + ":" +e.Message);
         }
     }
 }

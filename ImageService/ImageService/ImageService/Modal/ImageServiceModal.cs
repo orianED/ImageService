@@ -46,7 +46,7 @@ namespace ImageService.Modal {
                     if (!Directory.Exists(thumbDatePath)) {
                         Directory.CreateDirectory(thumbDatePath);
                     }
-                    newThumbImagePath = DuplicateCheck(path, thumbDatePath);
+                    newThumbImagePath = DuplicateCheck(newImagePath, thumbDatePath);
                     Image thumb = Image.FromFile(newImagePath);
                     thumb = (Image)(new Bitmap(thumb, new Size(this.m_thumbnailSize, this.m_thumbnailSize)));
                     thumb.Save(newThumbImagePath);
