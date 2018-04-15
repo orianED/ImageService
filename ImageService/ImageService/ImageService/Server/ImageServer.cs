@@ -34,11 +34,11 @@ namespace ImageService.Server {
 
             foreach (string dir in dirs) {
                 DirectoyHandler handler = new DirectoyHandler(m_controller, m_logging);
-                this.m_logging.Log("handler created for " + dir + "directory", Logging.Modal.MessageTypeEnum.INFO);
+                this.m_logging.Log("handler created for " + dir + " directory", Logging.Modal.MessageTypeEnum.INFO);
                 CommandRecieved += handler.OnCommandRecieved;
                 CloseServer += handler.CloseHandler;
                 handler.StartHandleDirectory(dir);
-                this.m_logging.Log("handler started for " + dir + "directory", Logging.Modal.MessageTypeEnum.INFO);
+                this.m_logging.Log("handler started for " + dir + " directory", Logging.Modal.MessageTypeEnum.INFO);
 
             }
         }
