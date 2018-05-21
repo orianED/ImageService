@@ -29,7 +29,7 @@
             <TextBlock Grid.Row="3" Grid.Column="0" FontWeight="Bold">Thumbnail Size:</TextBlock>
             <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding VM_ThumbnailSize}"/>
         </Grid>
-        <Button Margin="0,15,0,0" Height="50" HorizontalAlignment="Stretch">Remove</Button>
-        <ListBox Height="Auto" ItemsSource="{Binding VM_Handlers}"/>
+        <Button Margin="0,15,0,0" Height="50" HorizontalAlignment="Stretch" Command="{Binding RemoveHandlerCommand}">Remove</Button>
+        <ListBox Height="Auto" SelectedItem="{Binding SelectedHandler, Mode=TwoWay}" ItemsSource="{Binding VM_Handlers}"/>
     </StackPanel>
 </UserControl>

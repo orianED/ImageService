@@ -11,8 +11,8 @@
 
         <DataGrid>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Type" Width="Auto"></DataGridTextColumn>
-                <DataGridTextColumn Header="Message" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Type" Width="Auto" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Message" Width="*" Binding="{Binding Message}"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
