@@ -15,3 +15,5 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Deb
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.csproj.CopyComplete
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Newtonsoft.Json.xml

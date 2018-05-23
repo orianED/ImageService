@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 using System.Configuration;
 
 namespace ImageService.Controller.Handlers {
-    public class DirectoyHandler : IDirectoryHandler {
+    public class DirectoryHandler : IDirectoryHandler {
         #region Members
         private IImageController m_controller;              // The Image Processing Controller
         private ILoggingService m_logging;
@@ -28,7 +28,7 @@ namespace ImageService.Controller.Handlers {
         /// </summary>
         /// <param name="controller">The controller.</param>
         /// <param name="logging">The logging.</param>
-        public DirectoyHandler(IImageController controller, ILoggingService logging) {
+        public DirectoryHandler(IImageController controller, ILoggingService logging) {
             m_controller = controller;
             m_logging = logging;
         }

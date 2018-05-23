@@ -5,9 +5,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ImageCommunication.Client;
+using ImageCommunication.Events;
+using Newtonsoft.Json.Linq;
 
 namespace ImageGUI.Model {
     class SettingsModel : ISettingsModel {
+        private IClient m_client;
         private string m_outputDir;
         private string m_logName;
         private string m_sourceName;
@@ -17,9 +21,12 @@ namespace ImageGUI.Model {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public SettingsModel() {
-            m_handlers = new ObservableCollection<string>();
-            m_handlers.Add("dsad");
-            m_handlers.Add("hjg");
+            try {
+                m_client = Client.GetInstance;
+                m_client.DataRecieved += MessageRecieved;
+            } catch (Exception e) {
+
+            }
         }
 
         public string OutputDir { get { return m_outputDir; } set { m_outputDir = value; OnPropertyChanged("OutputDir"); } }
@@ -31,6 +38,17 @@ namespace ImageGUI.Model {
         protected void OnPropertyChanged(string prop) {
             if (prop != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public void MessageRecieved(object sender, DataRecievedEventsArgs e) {
+            if (e.Message.Contains("Config")) {
+                JObject json = JObject.Parse(e.Message);
+                OutputDir = (string)json["OutputDir"];
+                LogName = (string)json["LogName"];
+                SourceName = (string)json["SourceName"];
+                ThumbnailSize = (string)json["ThumbnailSize"];
+                Handlers=new ObservableCollection<string>(((string)json["Handler"]).Split(';'));
+            }
         }
     }
 }

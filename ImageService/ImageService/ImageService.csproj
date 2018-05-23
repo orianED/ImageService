@@ -55,13 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageService.Logging\LogMessage.cs" />
     <Compile Include="ImageService\Commands\CloseCommand.cs" />
     <Compile Include="ImageService\Commands\GetConfigCommand.cs" />
-    <Compile Include="ImageService\ImageService.cs">
+    <Compile Include="ImageService\Commands\LogCommand.cs" />
+    <Compile Include="ImageService\Controller\Handlers\DirectoryHandler.cs" />
+    <Compile Include="ImageService\ImageService1.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ImageService\ImageService.Designer.cs">
-      <DependentUpon>ImageService.cs</DependentUpon>
+    <Compile Include="ImageService\ImageService1.Designer.cs">
+      <DependentUpon>ImageService1.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageService.Infrastructure\Enums\CommandEnum.cs" />
     <Compile Include="ImageService.Logging\ILoggingService.cs" />
@@ -70,7 +73,6 @@
     <Compile Include="ImageService.Logging\Modal\MessageTypeEnum.cs" />
     <Compile Include="ImageService\Commands\ICommand.cs" />
     <Compile Include="ImageService\Commands\NewFileCommand.cs" />
-    <Compile Include="ImageService\Controller\Handlers\DirectoyHandler.cs" />
     <Compile Include="ImageService\Controller\Handlers\IDirectoryHandler.cs" />
     <Compile Include="ImageService\Controller\IImageController.cs" />
     <Compile Include="ImageService\Controller\ImageController.cs" />
@@ -93,8 +95,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ImageService\ImageService.resx">
-      <DependentUpon>ImageService.cs</DependentUpon>
+    <EmbeddedResource Include="ImageService\ImageService1.resx">
+      <DependentUpon>ImageService1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>

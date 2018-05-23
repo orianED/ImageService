@@ -37,7 +37,7 @@ public struct ServiceStatus {
 };
 
 namespace ImageService {
-    public partial class ImageService : ServiceBase {
+    public partial class ImageService1 : ServiceBase {
         private int eventId = 1;
         private IImageServiceModal modal;
         private ILoggingService logger;
@@ -48,7 +48,7 @@ namespace ImageService {
         [DllImport("advapi32.dll", SetLastError = true)]
         private static extern bool SetServiceStatus(IntPtr handle, ref ServiceStatus serviceStatus);
 
-        public ImageService() {
+        public ImageService1() {
             InitializeComponent();
             string eventSourceName = ConfigurationManager.AppSettings.Get("SourceName");
             string logName = ConfigurationManager.AppSettings.Get("LogName");

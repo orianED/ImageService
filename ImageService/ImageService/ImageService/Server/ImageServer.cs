@@ -20,6 +20,7 @@ namespace ImageService.Server {
         #region Properties
         public event EventHandler<CommandRecievedEventArgs> CommandRecieved;          // The event that notifies about a new Command being recieved
         public event EventHandler<DirectoryCloseEventArgs> CloseServer;
+        public Dictionary<string, IDirectoryHandler> Handlers { get; set; }
         #endregion
 
         /// <summary>
@@ -30,10 +31,12 @@ namespace ImageService.Server {
         public ImageServer(IImageController m_controller, ILoggingService m_logging) {
             this.m_controller = m_controller;
             this.m_logging = m_logging;
+            Handlers = new Dictionary<string, IDirectoryHandler>();
             string[] dirs = ConfigurationManager.AppSettings.Get("Handler").Split(';');
 
             foreach (string dir in dirs) {
-                DirectoyHandler handler = new DirectoyHandler(m_controller, m_logging);
+                IDirectoryHandler handler = new DirectoryHandler(m_controller, m_logging);
+                Handlers[dir] = handler;
                 this.m_logging.Log("handler created for " + dir + " directory", Logging.Modal.MessageTypeEnum.INFO);
                 CommandRecieved += handler.OnCommandRecieved;
                 CloseServer += handler.CloseHandler;
@@ -55,5 +58,13 @@ namespace ImageService.Server {
             }
         }
 
+        public void removeHandlerCommand(string dir) {
+            if (Handlers.ContainsKey(dir)) {
+                IDirectoryHandler handler = Handlers[dir];
+                CloseServer -= handler.CloseHandler;
+                handler.CloseHandler(this, null);
+                Handlers.Remove(dir);
+            }
+        }
     }
 }

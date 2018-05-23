@@ -6,10 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ImageCommunication.Client {
-    interface IClient {
+    public interface IClient {
         event EventHandler<DataRecievedEventsArgs> DataRecieved;
-
-        void Start();
+        
         void Close();
         void Send(string msg);
         void Read();

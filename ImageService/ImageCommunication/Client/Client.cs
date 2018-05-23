@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -10,7 +8,7 @@ using System.Threading.Tasks;
 using ImageCommunication.Events;
 
 namespace ImageCommunication.Client {
-    class Client : IClient {
+    public class Client : IClient {
         private static Client instance;
         private int port;
         private string ip;
@@ -33,7 +31,6 @@ namespace ImageCommunication.Client {
             try {
                 client.Connect(ep);
                 Console.Write("Connection Success");
-                Start();
             }catch(Exception e) {
                 Console.Write("Connection Failed");
                 Close();
@@ -73,10 +70,6 @@ namespace ImageCommunication.Client {
             }catch(Exception e) {
                 Console.Write(e.ToString());
             }
-        }
-
-        public void Start() {
-            
         }
 
         public void Close() {

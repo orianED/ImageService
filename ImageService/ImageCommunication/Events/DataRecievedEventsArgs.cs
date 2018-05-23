@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ImageCommunication.Events {
-    class DataRecievedEventsArgs {
+    public class DataRecievedEventsArgs {
         public string Message { get; set; }
     }
 }

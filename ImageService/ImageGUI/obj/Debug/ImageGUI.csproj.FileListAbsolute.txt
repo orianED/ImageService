@@ -27,3 +27,8 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debu
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\Microsoft.Practices.Prism.Mvvm.xml
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageCommunication.exe
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageCommunication.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageCommunication.exe.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\Newtonsoft.Json.xml
