@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using ImageCommunication.Events;
+using ImageCommunication.Handler;
 
 namespace ImageCommunication {
     class TcpServer : ITcpServer {
@@ -31,13 +32,16 @@ namespace ImageCommunication {
 
             listener.Start();
             Console.WriteLine("Waiting for connections...");
-
+            IClientHandler ch;
             Task task = new Task(() => {
                 while (true) {
                     try {
                         TcpClient client = listener.AcceptTcpClient();
                         Console.WriteLine("Got new connection");
-                        ch.HandleClient(client);
+                        ch = new ClientHandler(client);
+                        ch.DataRecieved += this.DataRecieved;
+
+
                     } catch (SocketException) {
                         break;
                     }
@@ -51,12 +55,10 @@ namespace ImageCommunication {
             listener.Stop();
         }
 
-        public void Read() {
-            throw new NotImplementedException();
-        }
-
-        public void Send() {
-            throw new NotImplementedException();
+        public void Send(string msg) {
+            DataRecievedEventsArgs e = new DataRecievedEventsArgs();
+            e.Message = msg;
+            this.DataRecieved?.Invoke(this, e);
         }
     }
 }

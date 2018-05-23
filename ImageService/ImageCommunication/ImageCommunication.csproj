@@ -33,6 +33,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,8 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\Client.cs" />
+    <Compile Include="Client\IClient.cs" />
+    <Compile Include="Events\DataRecievedEventsArgs.cs" />
+    <Compile Include="Handler\ClientHandler.cs" />
+    <Compile Include="Handler\IClientHandler.cs" />
+    <Compile Include="Server\ITcpServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\TcpServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
