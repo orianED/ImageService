@@ -10,13 +10,13 @@ using ImageCommunication.Events;
 using ImageCommunication.Handler;
 
 namespace ImageCommunication {
-    class TcpServer : ITcpServer {
+    public class TcpServer : ITcpServer {
         private int port;
         private string ip;
         private TcpListener listener;
 
 
-        public TcpListener Listener { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public TcpListener Listener { get; set; }
 
         public event EventHandler<DataRecievedEventsArgs> DataRecieved;
         public event EventHandler<DataRecievedEventsArgs> DataSend;
@@ -40,8 +40,6 @@ namespace ImageCommunication {
                         Console.WriteLine("Got new connection");
                         ch = new ClientHandler(client);
                         ch.DataRecieved += this.DataRecieved;
-
-
                     } catch (SocketException) {
                         break;
                     }

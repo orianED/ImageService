@@ -1,4 +1,5 @@
-﻿using ImageService.Controller;
+﻿using ImageCommunication;
+using ImageService.Controller;
 using ImageService.Controller.Handlers;
 using ImageService.Infrastructure.Enums;
 using ImageService.Logging;
@@ -15,6 +16,7 @@ namespace ImageService.Server {
         #region Members
         private IImageController m_controller;
         private ILoggingService m_logging;
+        private ITcpServer m_tcpServer;
         #endregion
 
         #region Properties
@@ -42,6 +44,11 @@ namespace ImageService.Server {
                 CloseServer += handler.CloseHandler;
                 handler.StartHandleDirectory(dir);
                 this.m_logging.Log("handler started for " + dir + " directory", Logging.Modal.MessageTypeEnum.INFO);
+            }
+            try {
+                m_tcpServer = new TcpServer();
+                //m_tcpServer.DataRecieved += CommandRecieved;
+            }catch(Exception e) {
 
             }
         }

@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ImageCommunication.Client;
 using ImageCommunication.Events;
+using ImageService.Infrastructure.Enums;
+using ImageService.Modal;
 using Newtonsoft.Json.Linq;
 
 namespace ImageGUI.Model {
@@ -24,6 +26,7 @@ namespace ImageGUI.Model {
             try {
                 m_client = Client.GetInstance;
                 m_client.DataRecieved += MessageRecieved;
+                SendCommandToService(new CommandRecievedEventArgs((int)CommandEnum.GetConfigCommand, null, null));
             } catch (Exception e) {
 
             }
@@ -42,6 +45,7 @@ namespace ImageGUI.Model {
 
         public void MessageRecieved(object sender, DataRecievedEventsArgs e) {
             if (e.Message.Contains("Config")) {
+                Console.Write("Config Pull");
                 JObject json = JObject.Parse(e.Message);
                 OutputDir = (string)json["OutputDir"];
                 LogName = (string)json["LogName"];
@@ -49,6 +53,9 @@ namespace ImageGUI.Model {
                 ThumbnailSize = (string)json["ThumbnailSize"];
                 Handlers=new ObservableCollection<string>(((string)json["Handler"]).Split(';'));
             }
+        }
+        public void SendCommandToService(CommandRecievedEventArgs e) {
+            m_client.Send(e.ToJson());
         }
     }
 }

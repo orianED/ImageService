@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ImageCommunication {
-    interface ITcpServer {
+    public interface ITcpServer {
         event EventHandler<DataRecievedEventsArgs> DataRecieved;
         event EventHandler<DataRecievedEventsArgs> DataSend;
 

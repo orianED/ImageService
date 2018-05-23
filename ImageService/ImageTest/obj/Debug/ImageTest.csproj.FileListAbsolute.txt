@@ -17,3 +17,6 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Deb
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.pdb
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageCommunication.exe
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageCommunication.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageCommunication.exe.config
