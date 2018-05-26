@@ -22,7 +22,7 @@ namespace ImageService.Controller {
             commands = new Dictionary<int, ICommand>();
             commands.Add((int)CommandEnum.NewFileCommand, new NewFileCommand(this.m_modal));
             commands.Add((int)CommandEnum.GetConfigCommand, new GetConfigCommand());
-            //commands.Add((int)CommandEnum.CloseCommand, new CloseCommand());
+            commands.Add((int)CommandEnum.CloseCommand, new CloseCommand());
         }
 
         /// <summary>

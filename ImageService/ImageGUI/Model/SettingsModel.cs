@@ -45,13 +45,27 @@ namespace ImageGUI.Model {
         }
 
         public void MessageRecieved(object sender, DataRecievedEventsArgs e) {
-            Console.Write("Config Pull");
             JObject json = JObject.Parse(e.Message);
-            OutputDir = (string)json["OutputDir"];
-            LogName = (string)json["LogName"];
-            SourceName = (string)json["SourceName"];
-            ThumbnailSize = (string)json["ThumbnailSize"];
-            Handlers = new ObservableCollection<string>(((string)json["Handler"]).Split(';'));
+            if ((int)CommandEnum.GetConfigCommand == Int32.Parse((string)json["CommandID"])) {
+                Console.Write("Config Pull");
+                OutputDir = (string)json["OutputDir"];
+                LogName = (string)json["LogName"];
+                SourceName = (string)json["SourceName"];
+                ThumbnailSize = (string)json["ThumbnailSize"];
+                Handlers = new ObservableCollection<string>(((string)json["Handler"]).Split(';'));
+            }
+        }
+
+        public void OnRemove(string path) {
+            string[] args = new String[1];
+            args[0] = path;
+            m_client.Send(new CommandRecievedEventArgs((int)CommandEnum.CloseCommand, args, null).ToJson());
+        }
+
+        public string GetColor() {
+            if (m_client != null && m_client.Connect())
+                return "Blue";
+            return "Gray";
         }
     }
 }

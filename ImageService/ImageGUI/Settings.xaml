@@ -6,8 +6,16 @@
         xmlns:local="clr-namespace:ImageGUI"
         mc:Ignorable="d"
         Height="450" Width="800">
+    <UserControl.Resources>
+        <Style x:Key="Title">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+            <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.Foreground" Value="{Binding ColorTitle}"/>
+        </Style>
+    </UserControl.Resources>
     <StackPanel>
-        <Label FontSize="30" HorizontalAlignment="Center" FontWeight="Bold">Settings</Label>
+        <Label x:Name="Setting" Style="{StaticResource Title}">Settings</Label>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />

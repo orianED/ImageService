@@ -1,0 +1,16 @@
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Release\ImageService.exe.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Release\ImageService.exe
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Release\ImageService.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Release\ImageCommunication.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Release\Newtonsoft.Json.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Release\ImageCommunication.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Release\ImageCommunication.dll.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Release\Newtonsoft.Json.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Release\ImageService.csprojResolveAssemblyReference.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Release\ImageService.ImageService1.resources
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Release\ImageService.ProjectInstaller.resources
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Release\ImageService.csproj.GenerateResource.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Release\ImageService.csproj.CoreCompileInputs.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Release\ImageService.csproj.CopyComplete
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Release\ImageService.exe
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Release\ImageService.pdb

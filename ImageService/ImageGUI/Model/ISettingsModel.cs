@@ -16,5 +16,8 @@ namespace ImageGUI.Model
         string ThumbnailSize { get; set; }
         ObservableCollection<string> Handlers { get; set; }
         #endregion
+
+        void OnRemove(string path);
+        string GetColor();
     }
 }

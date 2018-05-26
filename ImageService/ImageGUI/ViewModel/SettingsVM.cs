@@ -51,6 +51,9 @@ namespace ImageGUI.ViewModel {
         public ObservableCollection<string> VM_Handlers {
             get { return model.Handlers; }
         }
+        public string ColorTitle {
+            get { return model.GetColor(); }
+        }
 
         public ICommand RemoveHandlerCommand { get; private set; }
 
@@ -63,6 +66,7 @@ namespace ImageGUI.ViewModel {
         }
 
         public void OnRemoveHandler(Object obj) {
+            model.OnRemove(selectedHandler);
             model.Handlers.Remove(selectedHandler);
             selectedHandler = null;
         }

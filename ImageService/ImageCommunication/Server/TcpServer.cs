@@ -60,5 +60,6 @@ namespace ImageCommunication {
         public void Send(Object sender, DataRecievedEventsArgs e) {
             this.DataSend?.Invoke(this, e);
         }
+
     }
 }

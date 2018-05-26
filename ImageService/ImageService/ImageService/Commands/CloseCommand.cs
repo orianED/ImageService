@@ -2,6 +2,7 @@
 using ImageService.Infrastructure.Enums;
 using ImageService.Modal;
 using ImageService.Server;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,6 +17,8 @@ namespace ImageService.ImageService.Commands {
             if (args.Length != 1)
                 throw new Exception("Too few/mant args for the remove func");
             try {
+                JObject j = new JObject();
+                j["CommandID"] = (int)CommandEnum.CloseCommand;
                 string[] handlers = ConfigurationManager.AppSettings.Get("Handler").Split(';');
                 StringBuilder newHandlers = new StringBuilder();
                 foreach (string dir in handlers) {
@@ -25,7 +28,7 @@ namespace ImageService.ImageService.Commands {
                 }
                 ConfigurationManager.AppSettings.Set("Handler", newHandlers.ToString().TrimEnd(';'));
                 result = true;
-                return "Close";
+                return j.ToString().Replace(Environment.NewLine, " ");
             } catch (Exception e) {
                 result = false;
                 return e.ToString();

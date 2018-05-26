@@ -1,0 +1,6 @@
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunication\bin\Release\ImageCommunication.dll.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunication\bin\Release\ImageCommunication.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunication\bin\Release\ImageCommunication.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunication\obj\Release\ImageCommunication.csproj.CoreCompileInputs.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunication\obj\Release\ImageCommunication.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunication\obj\Release\ImageCommunication.pdb

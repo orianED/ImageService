@@ -18,6 +18,7 @@ namespace ImageService.ImageService.Commands {
             Console.WriteLine("execute...");
             try {
                 JObject j = new JObject();
+                j["CommandID"] = (int)CommandEnum.GetConfigCommand;
                 j["OutputDir"] = ConfigurationManager.AppSettings["OutputDir"];
                 j["LogName"] = ConfigurationManager.AppSettings["LogName"];
                 j["SourceName"] = ConfigurationManager.AppSettings["SourceName"];

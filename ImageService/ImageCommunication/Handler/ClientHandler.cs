@@ -25,7 +25,7 @@ namespace ImageCommunication.Handler {
             }
         }
 
-        public void HandleClient() {
+        public void HandleClient() { 
             string msg;
 
             try {

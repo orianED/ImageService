@@ -83,5 +83,12 @@ namespace ImageCommunication.Client {
                 client = null;
             }
         }
+
+        public bool Connect() {
+            if(client != null) {
+                return client.Connected;
+            }
+            return false;
+        }
     }
 }

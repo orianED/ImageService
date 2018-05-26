@@ -84,6 +84,9 @@ namespace ImageService.Server {
                 CommandRecievedEventArgs cArgs = CommandRecievedEventArgs.FromJason(e.Message);
                 DataRecievedEventsArgs d = new DataRecievedEventsArgs();
                 d.Message = m_controller.ExecuteCommand(cArgs.CommandID, cArgs.Args, out result);
+                if ((int)CommandEnum.CloseCommand == cArgs.CommandID) {
+                    this.CloseHandlerCommand(cArgs.Args[0]);
+                }
                 IClientHandler ch = (IClientHandler)sender;
                 ch.Send(this, d);
             } catch (Exception ex) {
