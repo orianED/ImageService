@@ -52,8 +52,6 @@ namespace ImageService {
             InitializeComponent();
             string eventSourceName = ConfigurationManager.AppSettings.Get("SourceName");
             string logName = ConfigurationManager.AppSettings.Get("LogName");
-            string outputDir = ConfigurationManager.AppSettings.Get("OutputDir");
-            int thumbnailSize = Int32.Parse(ConfigurationManager.AppSettings.Get("ThumbnailSize"));
 
             eventLog1 = new System.Diagnostics.EventLog();
             if (!System.Diagnostics.EventLog.SourceExists(eventSourceName)) {
@@ -61,14 +59,15 @@ namespace ImageService {
             }
             eventLog1.Source = eventSourceName;
             eventLog1.Log = logName;
+        }
 
+        protected override void OnStart(string[] args) {
+            string outputDir = ConfigurationManager.AppSettings.Get("OutputDir");
+            int thumbnailSize = Int32.Parse(ConfigurationManager.AppSettings.Get("ThumbnailSize"));
             modal = new ImageServiceModal(outputDir, thumbnailSize);
             logger = new LoggingService();
             logger.MessageRecieved += OnMessage;
             controller = new ImageController(modal);
-        }
-
-        protected override void OnStart(string[] args) {
             this.logger.Log("On Start", MessageTypeEnum.INFO);
             server = new ImageServer(controller, logger);
 
@@ -112,6 +111,10 @@ namespace ImageService {
 
         public void OnMessage(object sender, MessageRecievedEventArgs e) {
             eventLog1.WriteEntry(e.Status + ":" + e.Message);
+        }
+
+        public void OnDebug() {
+            OnStart(null);
         }
     }
 }

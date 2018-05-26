@@ -21,6 +21,6 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.csproj.CopyComplete
-C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageCommunication.exe
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageCommunication.pdb
-C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageCommunication.exe.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageCommunication.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageCommunication.dll.config

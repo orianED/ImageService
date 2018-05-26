@@ -7,9 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ImageCommunication.Handler {
-    interface IClientHandler {
+    public interface IClientHandler {
         event EventHandler<DataRecievedEventsArgs> DataRecieved;
-        void Start();
+
+        void HandleClient();
         void Close();
         void Send(object sender, DataRecievedEventsArgs e);
     }

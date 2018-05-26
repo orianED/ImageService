@@ -1,4 +1,6 @@
 ﻿using ImageCommunication;
+using ImageCommunication.Events;
+using ImageCommunication.Handler;
 using ImageService.Controller;
 using ImageService.Controller.Handlers;
 using ImageService.Infrastructure.Enums;
@@ -47,8 +49,9 @@ namespace ImageService.Server {
             }
             try {
                 m_tcpServer = new TcpServer();
-                //m_tcpServer.DataRecieved += CommandRecieved;
-            }catch(Exception e) {
+                m_tcpServer.DataRecieved += this.OnCommandRecieved;
+                m_tcpServer.Start();
+            } catch (Exception e) {
 
             }
         }
@@ -65,7 +68,7 @@ namespace ImageService.Server {
             }
         }
 
-        public void removeHandlerCommand(string dir) {
+        public void CloseHandlerCommand(string dir) {
             if (Handlers.ContainsKey(dir)) {
                 IDirectoryHandler handler = Handlers[dir];
                 CloseServer -= handler.CloseHandler;
@@ -73,5 +76,21 @@ namespace ImageService.Server {
                 Handlers.Remove(dir);
             }
         }
+
+        public void OnCommandRecieved(object sender, DataRecievedEventsArgs e) {
+            try {
+                Console.WriteLine("on command");
+                bool result;
+                CommandRecievedEventArgs cArgs = CommandRecievedEventArgs.FromJason(e.Message);
+                DataRecievedEventsArgs d = new DataRecievedEventsArgs();
+                d.Message = m_controller.ExecuteCommand(cArgs.CommandID, cArgs.Args, out result);
+                IClientHandler ch = (IClientHandler)sender;
+                ch.Send(this, d);
+            } catch (Exception ex) {
+                Console.WriteLine(ex.ToString());
+            }
+
+        }
+
     }
 }

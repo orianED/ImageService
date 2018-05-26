@@ -15,6 +15,6 @@ namespace ImageCommunication {
 
         void Start();
         void Stop();
-        void Send(string msg);
+        void Send(Object sender, DataRecievedEventsArgs e);
     }
 }

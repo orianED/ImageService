@@ -10,6 +10,7 @@ using ImageCommunication.Events;
 using ImageService.Infrastructure.Enums;
 using ImageService.Modal;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace ImageGUI.Model {
     class SettingsModel : ISettingsModel {
@@ -26,9 +27,9 @@ namespace ImageGUI.Model {
             try {
                 m_client = Client.GetInstance;
                 m_client.DataRecieved += MessageRecieved;
-                SendCommandToService(new CommandRecievedEventArgs((int)CommandEnum.GetConfigCommand, null, null));
+                m_client.Send((new CommandRecievedEventArgs((int)CommandEnum.GetConfigCommand, null, null)).ToJson());
             } catch (Exception e) {
-
+                Debug.WriteLine("Connection Failure");
             }
         }
 
@@ -44,18 +45,13 @@ namespace ImageGUI.Model {
         }
 
         public void MessageRecieved(object sender, DataRecievedEventsArgs e) {
-            if (e.Message.Contains("Config")) {
-                Console.Write("Config Pull");
-                JObject json = JObject.Parse(e.Message);
-                OutputDir = (string)json["OutputDir"];
-                LogName = (string)json["LogName"];
-                SourceName = (string)json["SourceName"];
-                ThumbnailSize = (string)json["ThumbnailSize"];
-                Handlers=new ObservableCollection<string>(((string)json["Handler"]).Split(';'));
-            }
-        }
-        public void SendCommandToService(CommandRecievedEventArgs e) {
-            m_client.Send(e.ToJson());
+            Console.Write("Config Pull");
+            JObject json = JObject.Parse(e.Message);
+            OutputDir = (string)json["OutputDir"];
+            LogName = (string)json["LogName"];
+            SourceName = (string)json["SourceName"];
+            ThumbnailSize = (string)json["ThumbnailSize"];
+            Handlers = new ObservableCollection<string>(((string)json["Handler"]).Split(';'));
         }
     }
 }

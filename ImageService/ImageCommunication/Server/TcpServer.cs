@@ -16,30 +16,34 @@ namespace ImageCommunication {
         private TcpListener listener;
 
 
-        public TcpListener Listener { get; set; }
+        public TcpListener Listener { get { return this.listener; } set { this.listener = value; } }
 
         public event EventHandler<DataRecievedEventsArgs> DataRecieved;
         public event EventHandler<DataRecievedEventsArgs> DataSend;
 
         public TcpServer() {
-            ip = ConfigurationManager.AppSettings.Get("IP");
-            port = Int32.Parse(ConfigurationManager.AppSettings.Get("Port"));
+            //ip = ConfigurationManager.AppSettings.Get("IP");
+            // port = Int32.Parse(ConfigurationManager.AppSettings.Get("Port"));
+            ip = "127.0.0.1";
+            port = 8443;
         }
 
         public void Start() {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), port);
-            listener = new TcpListener(ep);
+            this.listener = new TcpListener(ep);
 
-            listener.Start();
+            this.listener.Start();
             Console.WriteLine("Waiting for connections...");
-            IClientHandler ch;
             Task task = new Task(() => {
                 while (true) {
                     try {
-                        TcpClient client = listener.AcceptTcpClient();
+                        IClientHandler ch;
+                        TcpClient client = this.listener.AcceptTcpClient();
                         Console.WriteLine("Got new connection");
                         ch = new ClientHandler(client);
                         ch.DataRecieved += this.DataRecieved;
+                        this.DataSend += ch.Send;
+                        ch.HandleClient();
                     } catch (SocketException) {
                         break;
                     }
@@ -53,10 +57,8 @@ namespace ImageCommunication {
             listener.Stop();
         }
 
-        public void Send(string msg) {
-            DataRecievedEventsArgs e = new DataRecievedEventsArgs();
-            e.Message = msg;
-            this.DataRecieved?.Invoke(this, e);
+        public void Send(Object sender, DataRecievedEventsArgs e) {
+            this.DataSend?.Invoke(this, e);
         }
     }
 }

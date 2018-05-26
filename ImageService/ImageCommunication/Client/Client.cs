@@ -15,32 +15,39 @@ namespace ImageCommunication.Client {
         private TcpClient client;
         private IPEndPoint ep;
         private NetworkStream streamer;
-        private StreamReader reader;
-        private StreamWriter writer;
+        private BinaryReader reader;
+        private BinaryWriter writer;
 
         public event EventHandler<DataRecievedEventsArgs> DataRecieved;
 
         private Client() {
-            ip = ConfigurationManager.AppSettings.Get("IP");
-            port = Int32.Parse(ConfigurationManager.AppSettings.Get("Port"));
+            //ip = ConfigurationManager.AppSettings.Get("IP");
+            ip = "127.0.0.1";
+            //port = Int32.Parse(ConfigurationManager.AppSettings.Get("Port"));
+            port = 8443;
             ep = new IPEndPoint(IPAddress.Parse(ip), port);
-            this.streamer = client.GetStream();
-            reader = new StreamReader(streamer, Encoding.ASCII);
-            writer = new StreamWriter(streamer, Encoding.ASCII);
 
+            client = new TcpClient();
             try {
                 client.Connect(ep);
-                Console.Write("Connection Success");
+
+                this.streamer = client.GetStream();
+                this.reader = new BinaryReader(streamer);
+                this.writer = new BinaryWriter(streamer);
+                Console.WriteLine("Connection Success");
+
             }catch(Exception e) {
-                Console.Write("Connection Failed");
+                Console.WriteLine("Connection Failed");
                 Close();
             }
         }
 
         public static IClient GetInstance {
             get {
-                if (instance == null)
+                if (instance == null) {
                     instance = new Client();
+                    instance.Read();
+                }
                 return instance;
             }
         }
@@ -49,12 +56,8 @@ namespace ImageCommunication.Client {
             new Task(() => {
                 while (client.Connected) {
                     string msg;
-                    StringBuilder str = new StringBuilder();
-
-                    while ((msg = reader.ReadLine()) != null) {
-                        str.AppendLine(msg);
-                    }
-                    if ((msg = str.ToString()) != null) {
+                    
+                    if ((msg = reader.ReadString()) != null) {
                         DataRecievedEventsArgs dR = new DataRecievedEventsArgs();
                         dR.Message = msg;
                         DataRecieved?.Invoke(this, dR);
@@ -64,12 +67,13 @@ namespace ImageCommunication.Client {
         }
 
         public void Send(string msg) {
+            Console.WriteLine("send to server");
             try {
-                writer.Write(msg.Trim());
-                writer.Flush();
+                this.writer.Write(msg.Trim());
+                this.writer.Flush();
             }catch(Exception e) {
                 Console.Write(e.ToString());
-            }
+            }   
         }
 
         public void Close() {

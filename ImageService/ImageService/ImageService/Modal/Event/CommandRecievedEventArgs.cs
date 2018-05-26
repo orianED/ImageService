@@ -30,5 +30,19 @@ namespace ImageService.Modal {
             }
         }
 
+        public static CommandRecievedEventArgs FromJason(string s) {
+            try {
+                System.Console.WriteLine(s);
+                JObject j = JObject.Parse(s);
+                JArray cmdArg = (JArray)j["Args"];
+                string[] args = cmdArg.Select(c => (string)c).ToArray();
+                CommandRecievedEventArgs cArgs = new CommandRecievedEventArgs((int)j["CommandID"], args, null);
+                return cArgs;
+            } catch (Exception e) {
+                System.Console.WriteLine(e.ToString());
+                return null;
+            }
+        }
+
     }
 }

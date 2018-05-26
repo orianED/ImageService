@@ -11,11 +11,6 @@ using System.Threading.Tasks;
 
 namespace ImageService.ImageService.Commands {
     class CloseCommand : ICommand {
-        private ImageServer m_server;
-
-        public CloseCommand(ImageServer server) {
-            m_server = server;
-        }
 
         public string Execute(string[] args, out bool result) {
             if (args.Length != 1)
@@ -29,10 +24,8 @@ namespace ImageService.ImageService.Commands {
                     }
                 }
                 ConfigurationManager.AppSettings.Set("Handler", newHandlers.ToString().TrimEnd(';'));
-                m_server.removeHandlerCommand(args[0]);
-                CommandRecievedEventArgs commandArgs = new CommandRecievedEventArgs((int)CommandEnum.CloseCommand, args, "");
                 result = true;
-                return "";
+                return "Close";
             } catch (Exception e) {
                 result = false;
                 return e.ToString();

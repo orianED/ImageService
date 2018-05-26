@@ -1,54 +1,54 @@
 ﻿using ImageCommunication.Events;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ImageCommunication.Handler {
     class ClientHandler : IClientHandler {
-        private TcpClient client;
-        private StreamReader reader;
-        private StreamWriter writer;
+        private TcpClient m_client;
+        private BinaryReader reader;
+        private BinaryWriter writer;
         private NetworkStream streamer;
 
         public event EventHandler<DataRecievedEventsArgs> DataRecieved;
 
         public ClientHandler(TcpClient client) {
             if (client != null) {
-                this.client = client;
+                m_client = client;
                 streamer = client.GetStream();
-                reader = new StreamReader(streamer, Encoding.ASCII);
-                writer = new StreamWriter(streamer, Encoding.ASCII);
+                reader = new BinaryReader(streamer);
+                writer = new BinaryWriter(streamer);
             }
         }
 
-        public void Start() {
+        public void HandleClient() {
             string msg;
 
             try {
-                StringBuilder str = new StringBuilder();
-                while((msg = reader.ReadLine()) != null) {
-                    str.AppendLine(msg);
+                while (m_client.Connected) {
+                    Debug.WriteLine("client handler reading");
+                    if ((msg = reader.ReadString()) != null) {
+                        DataRecievedEventsArgs dR = new DataRecievedEventsArgs();
+                        dR.Message = msg;
+                        DataRecieved?.Invoke(this, dR);
+                    }
                 }
-                if((msg = str.ToString()) != null) {
-                    DataRecievedEventsArgs dR = new DataRecievedEventsArgs();
-                    dR.Message = msg;
-                    DataRecieved?.Invoke(this, dR);
-                }
-
             } catch (Exception e) {
                 Console.Write(e.ToString());
             }
         }
 
         public void Close() {
-            if(client != null) {
+            if (m_client != null) {
                 reader.Close();
                 writer.Close();
                 streamer.Close();
-                client.Close();
-                client = null;
+                m_client.Close();
+                m_client = null;
             }
         }
 
