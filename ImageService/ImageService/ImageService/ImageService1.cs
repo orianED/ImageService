@@ -67,7 +67,7 @@ namespace ImageService {
             modal = new ImageServiceModal(outputDir, thumbnailSize);
             logger = new LoggingService();
             logger.MessageRecieved += OnMessage;
-            controller = new ImageController(modal);
+            controller = new ImageController(modal, logger);
             this.logger.Log("On Start", MessageTypeEnum.INFO);
             server = new ImageServer(controller, logger);
 

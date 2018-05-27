@@ -21,11 +21,16 @@ namespace ImageService.ImageService.Commands {
 
         public string Execute(string[] args, out bool result) {
             try {
-                string[] log = new string[1];
-                log[0] = JsonConvert.SerializeObject(this.loggingService.Logger);
-                CommandRecievedEventArgs commandLog = new CommandRecievedEventArgs((int)CommandEnum.LogCommand, log, null);
+                string[] logs = new string[1];
+                StringBuilder builder = new StringBuilder();
+                foreach (LogMessage tempLog in this.loggingService.Logger) {
+                    builder.Append(tempLog.ToJson());
+                    builder.Append('|');
+                }
+                logs[0] = builder.ToString();
+                CommandRecievedEventArgs commandLog = new CommandRecievedEventArgs((int)CommandEnum.LogCommand, logs, null);
                 result = true;
-                return JsonConvert.SerializeObject(commandLog);
+                return commandLog.ToJson().ToString().Replace(Environment.NewLine, " ");
             } catch {
                 result = false;
                 return "LogCommand execute Failed!";

@@ -1,6 +1,9 @@
 ﻿using ImageGUI.Model;
+using ImageService.Logging;
+using ImageService.Logging.Modal;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -11,17 +14,19 @@ namespace ImageGUI.ViewModel {
         public event PropertyChangedEventHandler PropertyChanged;
         private ILogsModel logsModel;
 
+        public ObservableCollection<LogMessage> VM_logs { get { return logsModel.LogMessages; } }
+
         public LogsVM() {
-            logsModel = new LogsModel();
-            logsModel.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
+            this.logsModel = new LogsModel();
+            this.logsModel.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
                 NotifyPropertyChanged("VM_" + e.PropertyName);
             };
 
         }
 
-        public void NotifyPropertyChanged(string s) {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(s));
+        public void NotifyPropertyChanged(string propName) {
+            PropertyChangedEventArgs propertyChangedEventArgs = new PropertyChangedEventArgs(propName);
+            this.PropertyChanged?.Invoke(this, propertyChangedEventArgs);
         }
     }
 }

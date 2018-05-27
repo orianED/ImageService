@@ -29,14 +29,16 @@ namespace ImageCommunication.Handler {
             string msg;
 
             try {
-                while (m_client.Connected) {
-                    Debug.WriteLine("client handler reading");
-                    if ((msg = reader.ReadString()) != null) {
-                        DataRecievedEventsArgs dR = new DataRecievedEventsArgs();
-                        dR.Message = msg;
-                        DataRecieved?.Invoke(this, dR);
+                new Task(() => {
+                    while (m_client.Connected) {
+                        Debug.WriteLine("client handler reading");
+                        if ((msg = reader.ReadString()) != null) {
+                            DataRecievedEventsArgs dR = new DataRecievedEventsArgs();
+                            dR.Message = msg;
+                            DataRecieved?.Invoke(this, dR);
+                        }
                     }
-                }
+                }).Start();
             } catch (Exception e) {
                 Console.Write(e.ToString());
             }

@@ -29,6 +29,7 @@ namespace ImageService.Logging {
         /// <param name="message">The message.</param>
         /// <param name="type">The type of the message.</param>
         public void Log(string message, MessageTypeEnum type) {
+            Console.Write("{0},{1}", message, type);
             MessageRecieved?.Invoke(this, new MessageRecievedEventArgs(type, message));
             this.logger.Add(new LogMessage(message, type));
         }

@@ -9,10 +9,10 @@
     <StackPanel>
         <Label FontSize="30" HorizontalAlignment="Center" FontWeight="Bold">Logs</Label>
 
-        <DataGrid>
+        <DataGrid ItemsSource="{Binding VM_logs}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Type" Width="Auto" Binding="{Binding Type}"/>
-                <DataGridTextColumn Header="Message" Width="*" Binding="{Binding Message}"/>
+                <DataGridTextColumn Header="Type" Width="Auto" Binding="{Binding Path= Type}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Message" Width="*" Binding="{Binding Path= Message}"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
