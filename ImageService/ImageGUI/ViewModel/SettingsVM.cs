@@ -19,7 +19,7 @@ namespace ImageGUI.ViewModel {
         public SettingsVM() {
             model = new SettingsModel();
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
-                NotifyPropertyChanged("VM" + e.PropertyName);
+                NotifyPropertyChanged("VM_" + e.PropertyName);
             };
 
             this.RemoveHandlerCommand = new DelegateCommand<object>(OnRemoveHandler, this.CanRemove);
