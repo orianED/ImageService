@@ -18,6 +18,5 @@ namespace ImageGUI.Model
         #endregion
 
         void OnRemove(string path);
-        string GetColor();
     }
 }

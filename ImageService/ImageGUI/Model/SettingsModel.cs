@@ -61,11 +61,5 @@ namespace ImageGUI.Model {
             args[0] = path;
             m_client.Send(new CommandRecievedEventArgs((int)CommandEnum.CloseCommand, args, null).ToJson());
         }
-
-        public string GetColor() {
-            if (m_client != null && m_client.Connect())
-                return "Blue";
-            return "Gray";
-        }
     }
 }

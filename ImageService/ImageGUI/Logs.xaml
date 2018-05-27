@@ -8,9 +8,15 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <local:TypeToColor x:Key="TypeColor"/>
+        <Style x:Key="Title">
+            <Setter Property="TextBlock.FontSize" Value="30"/>
+            <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.Foreground" Value="Blue"/>
+        </Style>
     </UserControl.Resources>
     <StackPanel>
-        <Label FontSize="30" HorizontalAlignment="Center" FontWeight="Bold">Logs</Label>
+        <Label Style="{StaticResource Title}">Logs</Label>
 
         <DataGrid ItemsSource="{Binding VM_logs}" AutoGenerateColumns="False">
             <DataGrid.Columns>

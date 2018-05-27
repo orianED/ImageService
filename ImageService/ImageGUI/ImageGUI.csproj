@@ -73,10 +73,10 @@
     <Compile Include="Model\ISettingsModel.cs" />
     <Compile Include="Model\LogsModel.cs" />
     <Compile Include="Model\SettingsModel.cs" />
-    <Compile Include="TypeColor.cs" />
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\TypeToColor.cs" />
     <Compile Include="ViewModel\LogsVM.cs" />
     <Compile Include="ViewModel\SettingsVM.cs" />
     <Page Include="Logs.xaml">

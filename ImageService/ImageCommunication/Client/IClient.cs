@@ -12,6 +12,5 @@ namespace ImageCommunication.Client {
         void Close();
         void Send(string msg);
         void Read();
-        bool Connect();
     }
 }

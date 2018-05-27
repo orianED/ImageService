@@ -11,7 +11,7 @@
             <Setter Property="TextBlock.FontSize" Value="30"/>
             <Setter Property="TextBlock.FontWeight" Value="Bold"/>
             <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
-            <Setter Property="TextBlock.Foreground" Value="{Binding ColorTitle}"/>
+            <Setter Property="TextBlock.Foreground" Value="Blue"/>
         </Style>
     </UserControl.Resources>
     <StackPanel>
