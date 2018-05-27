@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ImageCommunication.Handler {
@@ -13,6 +14,7 @@ namespace ImageCommunication.Handler {
         private BinaryReader reader;
         private BinaryWriter writer;
         private NetworkStream streamer;
+        private static Mutex mut = new Mutex();
 
         public event EventHandler<DataRecievedEventsArgs> DataRecieved;
 
@@ -55,8 +57,10 @@ namespace ImageCommunication.Handler {
         }
 
         public void Send(object sender, DataRecievedEventsArgs e) {
+            mut.WaitOne();
             writer.Write(e.Message.Trim());
             writer.Flush();
+            mut.ReleaseMutex();
         }
     }
 }

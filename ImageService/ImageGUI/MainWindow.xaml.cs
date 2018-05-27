@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImageGUI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +19,12 @@ namespace ImageGUI {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        private MainWindowVM vm;
+
         public MainWindow() {
             InitializeComponent();
+            vm = new MainWindowVM();
+            DataContext = vm;
         }
     }
 }

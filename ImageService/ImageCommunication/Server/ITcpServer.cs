@@ -16,5 +16,6 @@ namespace ImageCommunication {
         void Start();
         void Stop();
         void Send(Object sender, DataRecievedEventsArgs e);
+        void NotifyAll(DataRecievedEventsArgs e);
     }
 }

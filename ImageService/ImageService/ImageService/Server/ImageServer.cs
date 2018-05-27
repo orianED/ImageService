@@ -86,7 +86,15 @@ namespace ImageService.Server {
                 d.Message = m_controller.ExecuteCommand(cArgs.CommandID, cArgs.Args, out result);
                 if ((int)CommandEnum.CloseCommand == cArgs.CommandID) {
                     this.CloseHandlerCommand(cArgs.Args[0]);
+                    m_tcpServer.NotifyAll(e);
                 }
+                //else if ((int)CommandEnum.LogCommand == cArgs.CommandID) {
+                //    string[] temp = { d.Message };
+                //    CommandRecievedEventArgs commandLog = new CommandRecievedEventArgs((int)CommandEnum.LogCommand, temp, null);
+                //    DataRecievedEventsArgs tempArg = new DataRecievedEventsArgs();
+                //    tempArg.Message = commandLog.ToJson().ToString().Replace(Environment.NewLine, " ");
+                //    m_tcpServer.NotifyAll(tempArg);
+                //}
                 IClientHandler ch = (IClientHandler)sender;
                 ch.Send(this, d);
             } catch (Exception ex) {

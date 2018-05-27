@@ -11,6 +11,7 @@ using ImageService.Infrastructure.Enums;
 using ImageService.Modal;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.Windows.Data;
 
 namespace ImageGUI.Model {
     class SettingsModel : ISettingsModel {
@@ -27,6 +28,9 @@ namespace ImageGUI.Model {
             try {
                 m_client = Client.GetInstance;
                 m_client.DataRecieved += MessageRecieved;
+                m_handlers = new ObservableCollection<string>();
+                BindingOperations.EnableCollectionSynchronization(m_handlers, new object());
+                m_handlers.CollectionChanged += (s, e) => OnPropertyChanged("Handlers");
                 m_client.Send((new CommandRecievedEventArgs((int)CommandEnum.GetConfigCommand, null, null)).ToJson());
             } catch (Exception e) {
                 Debug.WriteLine("Connection Failure");
@@ -52,7 +56,13 @@ namespace ImageGUI.Model {
                 LogName = (string)json["LogName"];
                 SourceName = (string)json["SourceName"];
                 ThumbnailSize = (string)json["ThumbnailSize"];
-                Handlers = new ObservableCollection<string>(((string)json["Handler"]).Split(';'));
+                string[] arr = ((string)json["Handler"]).Split(';');
+                for (int i = 0; i < arr.Length; i++) {
+                    m_handlers.Add(arr[i]);
+                }
+            } else if ((int)CommandEnum.CloseCommand == Int32.Parse((string)json["CommandID"])) {
+                CommandRecievedEventArgs cArgs = CommandRecievedEventArgs.FromJason(e.Message);
+                 m_handlers.Remove(cArgs.Args[0]);
             }
         }
 

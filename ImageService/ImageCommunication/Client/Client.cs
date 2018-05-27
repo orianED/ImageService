@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ImageCommunication.Events;
 
@@ -82,6 +83,12 @@ namespace ImageCommunication.Client {
                 client.Close();
                 client = null;
             }
+        }
+
+        public bool Connected() {
+            if (client == null)
+                return false;
+            return client.Connected;
         }
     }
 }

@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using ImageService.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Data;
 
 namespace ImageGUI.Model {
     class LogsModel : ILogsModel {

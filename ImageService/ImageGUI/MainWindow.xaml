@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Canvas Background="{Binding VM_IsConnected}"/>
         <TabControl>
             <TabItem Header="Settings">
                 <local:Settings Height="Auto" VerticalAlignment="Top"/>

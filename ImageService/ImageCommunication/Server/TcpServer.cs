@@ -14,7 +14,7 @@ namespace ImageCommunication {
         private int port;
         private string ip;
         private TcpListener listener;
-
+        private List<IClientHandler> chList;
 
         public TcpListener Listener { get { return this.listener; } set { this.listener = value; } }
 
@@ -26,6 +26,7 @@ namespace ImageCommunication {
             // port = Int32.Parse(ConfigurationManager.AppSettings.Get("Port"));
             ip = "127.0.0.1";
             port = 8443;
+            chList = new List<IClientHandler>();
         }
 
         public void Start() {
@@ -43,6 +44,7 @@ namespace ImageCommunication {
                         ch = new ClientHandler(client);
                         ch.DataRecieved += this.DataRecieved;
                         this.DataSend += ch.Send;
+                        chList.Add(ch);
                         ch.HandleClient();
                     } catch (SocketException) {
                         break;
@@ -61,5 +63,10 @@ namespace ImageCommunication {
             this.DataSend?.Invoke(this, e);
         }
 
+        public void NotifyAll(DataRecievedEventsArgs e) {
+            foreach (ClientHandler handler in chList) {
+                handler.Send(this, e);
+            }
+        }
     }
 }
