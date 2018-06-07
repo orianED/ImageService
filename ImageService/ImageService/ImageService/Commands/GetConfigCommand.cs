@@ -14,6 +14,12 @@ using System.Threading.Tasks;
 namespace ImageService.ImageService.Commands {
     class GetConfigCommand : ICommand {
 
+        /// <summary>
+        /// Execute the command.
+        /// </summary>
+        /// <param name="args"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public string Execute(string[] args, out bool result) {
             Console.WriteLine("execute...");
             try {

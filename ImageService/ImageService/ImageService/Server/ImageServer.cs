@@ -68,6 +68,10 @@ namespace ImageService.Server {
             }
         }
 
+        /// <summary>
+        /// Close the handler.
+        /// </summary>
+        /// <param name="dir"></param>
         public void CloseHandlerCommand(string dir) {
             if (Handlers.ContainsKey(dir)) {
                 IDirectoryHandler handler = Handlers[dir];
@@ -77,6 +81,11 @@ namespace ImageService.Server {
             }
         }
 
+        /// <summary>
+        /// Get command and execute it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnCommandRecieved(object sender, DataRecievedEventsArgs e) {
             try {
                 Console.WriteLine("on command");
@@ -88,13 +97,6 @@ namespace ImageService.Server {
                     this.CloseHandlerCommand(cArgs.Args[0]);
                     m_tcpServer.NotifyAll(e);
                 }
-                //else if ((int)CommandEnum.LogCommand == cArgs.CommandID) {
-                //    string[] temp = { d.Message };
-                //    CommandRecievedEventArgs commandLog = new CommandRecievedEventArgs((int)CommandEnum.LogCommand, temp, null);
-                //    DataRecievedEventsArgs tempArg = new DataRecievedEventsArgs();
-                //    tempArg.Message = commandLog.ToJson().ToString().Replace(Environment.NewLine, " ");
-                //    m_tcpServer.NotifyAll(tempArg);
-                //}
                 IClientHandler ch = (IClientHandler)sender;
                 ch.Send(this, d);
             } catch (Exception ex) {

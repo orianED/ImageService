@@ -21,6 +21,9 @@ namespace ImageCommunication.Client {
 
         public event EventHandler<DataRecievedEventsArgs> DataRecieved;
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="Client"/> class from being created.
+        /// </summary>
         private Client() {
             //ip = ConfigurationManager.AppSettings.Get("IP");
             ip = "127.0.0.1";
@@ -37,12 +40,18 @@ namespace ImageCommunication.Client {
                 this.writer = new BinaryWriter(streamer);
                 Console.WriteLine("Connection Success");
 
-            }catch(Exception e) {
+            } catch (Exception e) {
                 Console.WriteLine("Connection Failed");
                 Close();
             }
         }
 
+        /// <summary>
+        /// Gets the instance.
+        /// </summary>
+        /// <value>
+        /// The get instance.
+        /// </value>
         public static IClient GetInstance {
             get {
                 if (instance == null) {
@@ -53,38 +62,52 @@ namespace ImageCommunication.Client {
             }
         }
 
+        /// <summary>
+        /// Reads from the streamer.
+        /// </summary>
         public void Read() {
             new Task(() => {
                 while (client.Connected) {
                     string msg;
-                    
+
                     if ((msg = reader.ReadString()) != null) {
                         DataRecievedEventsArgs dR = new DataRecievedEventsArgs();
                         dR.Message = msg;
                         DataRecieved?.Invoke(this, dR);
                     }
                 }
-                }).Start();
+            }).Start();
         }
 
+        /// <summary>
+        /// Sends the specified MSG.
+        /// </summary>
+        /// <param name="msg">The MSG.</param>
         public void Send(string msg) {
             Console.WriteLine("send to server");
             try {
                 this.writer.Write(msg.Trim());
                 this.writer.Flush();
-            }catch(Exception e) {
+            } catch (Exception e) {
                 Console.Write(e.ToString());
-            }   
+            }
         }
 
+        /// <summary>
+        /// Closes this instance.
+        /// </summary>
         public void Close() {
-            if(instance!= null) {
+            if (instance != null) {
                 streamer.Close();
                 client.Close();
                 client = null;
             }
         }
 
+        /// <summary>
+        /// check if the client is connected.
+        /// </summary>
+        /// <returns></returns>
         public bool Connected() {
             if (client == null)
                 return false;

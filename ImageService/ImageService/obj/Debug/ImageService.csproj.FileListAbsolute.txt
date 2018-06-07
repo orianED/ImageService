@@ -8,7 +8,6 @@ C:\Users\Orian Edri\source\repos\ImageService\ImageService\obj\Debug\ImageServic
 C:\Users\Orian Edri\source\repos\ImageService\ImageService\obj\Debug\ImageService.csproj.CoreCompileInputs.cache
 C:\Users\Orian Edri\source\repos\ImageService\ImageService\obj\Debug\ImageService.exe
 C:\Users\Orian Edri\source\repos\ImageService\ImageService\obj\Debug\ImageService.pdb
-C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.csprojResolveAssemblyReference.cache
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.ProjectInstaller.resources
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.csproj.GenerateResource.cache
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.csproj.CoreCompileInputs.cache
@@ -24,3 +23,24 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageCommunication.pdb
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageCommunication.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\ImageCommunication.dll.config
+C:\Users\Alihom\Documents\GitHub\ImageService-master\ImageService\ImageService\bin\Debug\ImageService.exe.config
+C:\Users\Alihom\Documents\GitHub\ImageService-master\ImageService\ImageService\obj\Debug\ImageService.exe
+C:\Users\Alihom\Documents\GitHub\ImageService-master\ImageService\ImageService\obj\Debug\ImageService.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\obj\Debug\ImageService.csprojAssemblyReference.cache
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\EntityFramework.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.Helpers.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.Mvc.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.Razor.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.WebPages.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\EntityFramework.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.Helpers.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.Mvc.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.Razor.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.WebPages.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.WebPages.Razor.xml

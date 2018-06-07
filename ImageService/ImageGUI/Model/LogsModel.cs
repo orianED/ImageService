@@ -23,6 +23,9 @@ namespace ImageGUI.Model {
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<LogMessage> LogMessages { get { return this.logs; } set { this.logs = value; OnPropertyChanged("LogMessage"); } }
 
+        /// <summary>
+        /// Constractur.
+        /// </summary>
         public LogsModel() {
             try {
                 m_client = Client.GetInstance;
@@ -33,11 +36,20 @@ namespace ImageGUI.Model {
             }
         }
 
+        /// <summary>
+        /// Operate the getter.
+        /// </summary>
+        /// <param name="prop"></param>
         protected void OnPropertyChanged(string prop) {
             if (prop != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
+        /// <summary>
+        /// Handle the message recieved.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MessageRecieved(object sender, DataRecievedEventsArgs e) {
             Console.Write("Logs Pull");
             this.LogMessages = new ObservableCollection<LogMessage>();

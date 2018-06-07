@@ -21,6 +21,9 @@ namespace ImageCommunication {
         public event EventHandler<DataRecievedEventsArgs> DataRecieved;
         public event EventHandler<DataRecievedEventsArgs> DataSend;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TcpServer"/> class.
+        /// </summary>
         public TcpServer() {
             //ip = ConfigurationManager.AppSettings.Get("IP");
             // port = Int32.Parse(ConfigurationManager.AppSettings.Get("Port"));
@@ -28,7 +31,9 @@ namespace ImageCommunication {
             port = 8443;
             chList = new List<IClientHandler>();
         }
-
+        /// <summary>
+        /// Start the server and wait for client connect.
+        /// </summary>
         public void Start() {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), port);
             this.listener = new TcpListener(ep);
@@ -55,14 +60,26 @@ namespace ImageCommunication {
             task.Start();
         }
 
+        /// <summary>
+        /// Stops the server.
+        /// </summary>
         public void Stop() {
             listener.Stop();
         }
 
+        /// <summary>
+        /// Sends the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The data.</param>
         public void Send(Object sender, DataRecievedEventsArgs e) {
             this.DataSend?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// Notifies all clients if something changed.
+        /// </summary>
+        /// <param name="e">The changed data</param>
         public void NotifyAll(DataRecievedEventsArgs e) {
             foreach (ClientHandler handler in chList) {
                 handler.Send(this, e);

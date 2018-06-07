@@ -16,6 +16,9 @@ namespace ImageGUI.ViewModel {
 
         public ObservableCollection<LogMessage> VM_logs { get { return logsModel.LogMessages; } }
 
+        /// <summary>
+        /// Constractur.
+        /// </summary>
         public LogsVM() {
             this.logsModel = new LogsModel();
             this.logsModel.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
@@ -24,6 +27,10 @@ namespace ImageGUI.ViewModel {
 
         }
 
+        /// <summary>
+        /// Notify when property changed.
+        /// </summary>
+        /// <param name="propName"></param>
         public void NotifyPropertyChanged(string propName) {
             PropertyChangedEventArgs propertyChangedEventArgs = new PropertyChangedEventArgs(propName);
             this.PropertyChanged?.Invoke(this, propertyChangedEventArgs);

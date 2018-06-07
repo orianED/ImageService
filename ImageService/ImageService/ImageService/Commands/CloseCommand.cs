@@ -13,6 +13,12 @@ using System.Threading.Tasks;
 namespace ImageService.ImageService.Commands {
     class CloseCommand : ICommand {
 
+        /// <summary>
+        /// Execute the command.
+        /// </summary>
+        /// <param name="args"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public string Execute(string[] args, out bool result) {
             if (args.Length != 1)
                 throw new Exception("Too few/mant args for the remove func");

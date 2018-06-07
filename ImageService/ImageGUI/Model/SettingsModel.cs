@@ -24,6 +24,9 @@ namespace ImageGUI.Model {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Constractur.
+        /// </summary>
         public SettingsModel() {
             try {
                 m_client = Client.GetInstance;
@@ -43,11 +46,20 @@ namespace ImageGUI.Model {
         public string ThumbnailSize { get { return m_thumbnailSize; } set { m_thumbnailSize = value; OnPropertyChanged("ThumnailSize"); } }
         public ObservableCollection<string> Handlers { get { return m_handlers; } set { m_handlers = value; OnPropertyChanged("Handlers"); } }
 
+        /// <summary>
+        /// Operate the getter.
+        /// </summary>
+        /// <param n
         protected void OnPropertyChanged(string prop) {
             if (prop != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
+        /// <summary>
+        /// Handle the message recieved.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void MessageRecieved(object sender, DataRecievedEventsArgs e) {
             JObject json = JObject.Parse(e.Message);
             if ((int)CommandEnum.GetConfigCommand == Int32.Parse((string)json["CommandID"])) {
@@ -62,10 +74,15 @@ namespace ImageGUI.Model {
                 }
             } else if ((int)CommandEnum.CloseCommand == Int32.Parse((string)json["CommandID"])) {
                 CommandRecievedEventArgs cArgs = CommandRecievedEventArgs.FromJason(e.Message);
-                 m_handlers.Remove(cArgs.Args[0]);
+                if (Handlers.Contains(cArgs.Args[0]))
+                    m_handlers.Remove(cArgs.Args[0]);
             }
         }
 
+        /// <summary>
+        /// Send message when handler remove.
+        /// </summary>
+        /// <param name="path"></param>
         public void OnRemove(string path) {
             string[] args = new String[1];
             args[0] = path;

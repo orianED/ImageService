@@ -18,6 +18,10 @@ namespace ImageCommunication.Handler {
 
         public event EventHandler<DataRecievedEventsArgs> DataRecieved;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClientHandler"/> class.
+        /// </summary>
+        /// <param name="client">The client.</param>
         public ClientHandler(TcpClient client) {
             if (client != null) {
                 m_client = client;
@@ -27,6 +31,9 @@ namespace ImageCommunication.Handler {
             }
         }
 
+        /// <summary>
+        /// Handles the client.
+        /// </summary>
         public void HandleClient() { 
             string msg;
 
@@ -46,6 +53,9 @@ namespace ImageCommunication.Handler {
             }
         }
 
+        /// <summary>
+        /// Closes this instance.
+        /// </summary>
         public void Close() {
             if (m_client != null) {
                 reader.Close();
@@ -56,6 +66,11 @@ namespace ImageCommunication.Handler {
             }
         }
 
+        /// <summary>
+        /// Sends new data for client.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The data to send.</param>
         public void Send(object sender, DataRecievedEventsArgs e) {
             mut.WaitOne();
             writer.Write(e.Message.Trim());

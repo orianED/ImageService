@@ -15,10 +15,20 @@ namespace ImageService.ImageService.Commands {
 
         private ILoggingService loggingService;
 
+        /// <summary>
+        /// Constractur.
+        /// </summary>
+        /// <param name="logger"></param>
         public LogCommand(ILoggingService logger) {
             this.loggingService = logger;
         }
 
+        /// <summary>
+        /// Execute the command.
+        /// </summary>
+        /// <param name="args"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public string Execute(string[] args, out bool result) {
             try {
                 string[] logs = new string[1];

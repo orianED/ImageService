@@ -16,6 +16,9 @@ namespace ImageGUI.ViewModel {
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Constractur.
+        /// </summary>
         public SettingsVM() {
             model = new SettingsModel();
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
@@ -26,11 +29,20 @@ namespace ImageGUI.ViewModel {
             PropertyChanged += RemoveSelectedHandler;
         }
 
+        /// <summary>
+        /// Notify when property changed.
+        /// </summary>
+        /// <param name="propName"></param>
         private void NotifyPropertyChanged(string propName) {
             PropertyChangedEventArgs propertyChangedEventArgs = new PropertyChangedEventArgs(propName);
             this.PropertyChanged?.Invoke(this, propertyChangedEventArgs);
         }
 
+        /// <summary>
+        /// Remove the selected Handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveSelectedHandler(object sender, PropertyChangedEventArgs e) {
             var command = this.RemoveHandlerCommand as DelegateCommand<object>;
             command?.RaiseCanExecuteChanged();
@@ -54,6 +66,9 @@ namespace ImageGUI.ViewModel {
 
         public ICommand RemoveHandlerCommand { get; private set; }
 
+        /// <summary>
+        /// Select the handler.
+        /// </summary>
         public string SelectedHandler {
             get { return selectedHandler; }
             set {
@@ -62,12 +77,21 @@ namespace ImageGUI.ViewModel {
             }
         }
 
+        /// <summary>
+        /// Remove the handler.
+        /// </summary>
+        /// <param name="obj"></param>
         public void OnRemoveHandler(Object obj) {
             model.OnRemove(selectedHandler);
             model.Handlers.Remove(selectedHandler);
             selectedHandler = null;
         }
 
+        /// <summary>
+        /// Check if can remove the handler.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         private bool CanRemove(Object obj) {
             return (SelectedHandler != null);
         }

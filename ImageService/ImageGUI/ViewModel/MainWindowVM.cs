@@ -11,6 +11,9 @@ namespace ImageGUI.ViewModel {
 
         public string VM_IsConnected { get { return model.IsConnected(); } }
 
+        /// <summary>
+        /// Constractur.
+        /// </summary>
         public MainWindowVM() {
             model = new MainWindowModel();
         }

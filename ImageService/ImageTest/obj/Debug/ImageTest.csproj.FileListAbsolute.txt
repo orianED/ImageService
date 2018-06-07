@@ -1,4 +1,3 @@
-C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.csprojResolveAssemblyReference.cache
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.csproj.CoreCompileInputs.cache
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
@@ -20,3 +19,4 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Deb
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageCommunication.pdb
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageCommunication.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\bin\Debug\ImageCommunication.dll.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageTest\obj\Debug\ImageTest.csprojAssemblyReference.cache

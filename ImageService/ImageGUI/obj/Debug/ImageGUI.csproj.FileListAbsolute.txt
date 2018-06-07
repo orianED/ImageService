@@ -4,7 +4,6 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debu
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageService.exe
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageService.pdb
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageService.exe.config
-C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI.csprojResolveAssemblyReference.cache
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\obj\Debug\MainWindow.g.cs
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\obj\Debug\App.g.cs
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI_MarkupCompile.cache
@@ -32,3 +31,4 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debu
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageCommunication.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageCommunication.dll.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI.csprojAssemblyReference.cache
