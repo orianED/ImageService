@@ -1,7 +1,49 @@
-﻿
+﻿@model ImageWebApp.Models.ConfigModel
+
+
 @{
     ViewBag.Title = "Config";
 }
 
 <h2>Config</h2>
-
+<ul>
+    <li>
+        <b>
+            @Html.DisplayNameFor(model => model.SourceName)
+        </b>
+        @Html.DisplayName(Model.SourceName)
+    </li>
+    <li>
+        <b>
+            @Html.DisplayNameFor(model => model.LogName)
+        </b>
+        @Html.DisplayName(Model.LogName)
+    </li>
+    <li>
+        <b>
+            @Html.DisplayNameFor(model => model.OutputDir)
+        </b>
+        @Html.DisplayName(Model.OutputDir)
+    </li>
+    <li>
+        <b>
+            @Html.DisplayNameFor(model => model.ThumbnailSize)
+        </b>
+        @Html.DisplayName(Model.ThumbnailSize)
+    </li>
+    <li>
+        <b>
+            @Html.DisplayNameFor(model => model.Handlers)
+        </b>
+        <table>
+            <tr></tr>
+            @foreach (var handler in Model.Handlers) {
+                <tr>
+                    <td>
+                        @Html.ActionLink(@handler, "RemoveHandler", "Home", new { dir = handler }, null)
+                    </td>
+                </tr>
+            }
+        </table>
+    </li>
+</ul>

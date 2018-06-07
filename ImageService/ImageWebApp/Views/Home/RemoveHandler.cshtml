@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "RemoveHandler";
+}
+
+<h2>Are you sure you want to remove this handler?</h2>
+<p>
+    @ViewBag.Dir
+</p>
+
+<button id="OK" onclick="@{((ImageWebApp.Controllers.HomeController)this.ViewContext.Controller).RemoveOK(ViewBag.Dir);}">OK</button>
+<button id="Cancel" onclick="history.back()">Cancel</button>

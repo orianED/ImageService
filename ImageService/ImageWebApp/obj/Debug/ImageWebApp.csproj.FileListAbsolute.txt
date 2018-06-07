@@ -90,3 +90,10 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\obj\D
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\obj\Debug\ImageWebApp.csproj.CopyComplete
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\obj\Debug\ImageWebApp.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\obj\Debug\ImageWebApp.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\bin\ImageCommunication.dll
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\bin\ImageService.exe
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\bin\ImageCommunication.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\bin\ImageCommunication.dll.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\bin\ImageService.pdb
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\bin\ImageService.exe.config
+C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageWebApp\obj\Debug\ImageWebApp.csprojAssemblyReference.cache
