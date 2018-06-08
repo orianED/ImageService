@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ImageWebApp.Controllers {
     public class HomeController : Controller {
+        private string selected_dir;
         static readonly ConfigModel config_model = new ConfigModel();
         public ActionResult Index() {
             return View();

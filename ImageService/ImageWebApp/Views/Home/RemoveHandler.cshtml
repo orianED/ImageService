@@ -8,5 +8,5 @@
     @ViewBag.Dir
 </p>
 
-<button id="OK" onclick="@{((ImageWebApp.Controllers.HomeController)this.ViewContext.Controller).RemoveOK(ViewBag.Dir);}">OK</button>
-<button id="Cancel" onclick="history.back()">Cancel</button>
+<button id="OK" onclick="location.href='@Url.Action("RemoveOK","Home",new { dir = ViewBag.Dir})'">OK</button>
+<button id="Cancel" onclick="location.href='@Url.Action("Config","Home",new { })'">Cancel</button>
