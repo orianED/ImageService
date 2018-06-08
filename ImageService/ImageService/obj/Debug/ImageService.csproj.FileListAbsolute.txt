@@ -44,3 +44,33 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.WebPages.xml
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageService\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\ImageService.exe.config
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\obj\Debug\ImageService.exe
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\obj\Debug\ImageService.pdb
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\ImageService.exe
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\ImageService.pdb
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\EntityFramework.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\ImageCommunication.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.Helpers.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.Mvc.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.Razor.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.WebPages.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\ImageCommunication.pdb
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\EntityFramework.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.Helpers.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.Mvc.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.Razor.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.WebPages.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\obj\Debug\ImageService.csprojResolveAssemblyReference.cache
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\obj\Debug\ImageService.ImageService1.resources
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\obj\Debug\ImageService.ProjectInstaller.resources
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageService\obj\Debug\ImageService.csproj.GenerateResource.Cache

@@ -7,9 +7,9 @@ using System.Web.Mvc;
 
 namespace ImageWebApp.Controllers {
     public class HomeController : Controller {
-        private string selected_dir;
 
         static readonly ConfigModel config_model = new ConfigModel();
+        static readonly LogsModel logs_model = new LogsModel();
         static readonly HomeModel home_model = new HomeModel();
 
         public ActionResult Index() {
@@ -33,7 +33,7 @@ namespace ImageWebApp.Controllers {
         public ActionResult Logs() {
             ViewBag.Message = "Service Logs.";
 
-            return View();
+            return View(logs_model);
         }
 
         public ActionResult RemoveHandler(string dir) {
