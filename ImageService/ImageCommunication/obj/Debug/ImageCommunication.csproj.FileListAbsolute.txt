@@ -5,3 +5,9 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunicatio
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunication\bin\Debug\ImageCommunication.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunication\obj\Debug\ImageCommunication.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageCommunication\obj\Debug\ImageCommunication.csprojAssemblyReference.cache
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\bin\Debug\ImageCommunication.dll.config
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\bin\Debug\ImageCommunication.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\bin\Debug\ImageCommunication.pdb
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\obj\Debug\ImageCommunication.csprojResolveAssemblyReference.cache
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\obj\Debug\ImageCommunication.dll
+C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\obj\Debug\ImageCommunication.pdb

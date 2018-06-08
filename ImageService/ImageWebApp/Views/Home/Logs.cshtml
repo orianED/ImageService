@@ -1,17 +1,27 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@model ImageWebApp.Models.LogsModel
+
+@{
+    ViewBag.Title = "Logs";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<assemblies>
+    <add assembly="ImageService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+</assemblies>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<h2>Logs</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Types</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in Model.Logs) {
+            <tr>
+                <td width="100">  @Html.Raw(log.Item1) </td>
+                <td>  @Html.Raw(log.Item2) </td>
+            </tr>
+        }
+    </tbody>
+</table>
