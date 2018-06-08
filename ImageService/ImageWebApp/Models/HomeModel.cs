@@ -26,7 +26,7 @@ namespace ImageWebApp.Models {
         }
 
         public List<string[]> Students { get; set; }
-        
+
         public string ServiceStatus {
             get {
                 if (m_sc.Status == ServiceControllerStatus.Running)
@@ -43,6 +43,24 @@ namespace ImageWebApp.Models {
                 return "Red";
             }
             set { }
+        }
+
+        public int NumOfTransfered {
+            get; set;
+        }
+
+        public void PicsCount(string outputDirectory) {
+            NumOfTransfered = 0;
+            if (outputDirectory == null || outputDirectory == "")
+                return;
+            else {
+                outputDirectory = outputDirectory + "\\Thumbnails";
+                DirectoryInfo directoryName = new DirectoryInfo(outputDirectory);
+                NumOfTransfered += directoryName.GetFiles("*.jpg", SearchOption.AllDirectories).Length;
+                NumOfTransfered += directoryName.GetFiles("*.png", SearchOption.AllDirectories).Length;
+                NumOfTransfered += directoryName.GetFiles("*.bmp", SearchOption.AllDirectories).Length;
+                NumOfTransfered += directoryName.GetFiles("*.gif", SearchOption.AllDirectories).Length;
+            }
         }
 
         public void ReadStudents() {

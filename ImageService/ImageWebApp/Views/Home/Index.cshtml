@@ -6,17 +6,19 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div>
+        <div style="height:40px">
             <b>Service Status:</b>
             <text style="color:@Model.StatusColor">
                 @Model.ServiceStatus
             </text>
         </div>
         <div>
-            <h5>Pics have been transered so far.</h5>
+            <b>@Model.NumOfTransfered</b>
+            <text>Pics have been transered so far.</text>
         </div>
     </div>
     <div class="col-md-6">
+        <h4>Students Details</h4>
         <table style="width:100%;text-align:center">
             <tr style="background-color:darkgrey">
                 <td><b>First Name</b></td>

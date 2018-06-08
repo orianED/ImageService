@@ -13,6 +13,8 @@ namespace ImageWebApp.Controllers {
         static readonly HomeModel home_model = new HomeModel();
 
         public ActionResult Index() {
+            home_model.PicsCount(config_model.OutputDir);
+
             return View(home_model);
         }
 
