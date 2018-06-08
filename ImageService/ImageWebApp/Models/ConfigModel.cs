@@ -15,12 +15,7 @@ using System.Web;
 namespace ImageWebApp.Models {
     public class ConfigModel {
         private IClient m_client;
-        private string m_outputDir;
-        private string m_logName;
-        private string m_sourceName;
-        private string m_thumbnailSize;
         private ObservableCollection<string> m_handlers;
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public ConfigModel() {
             try {

@@ -8,9 +8,12 @@ using System.Web.Mvc;
 namespace ImageWebApp.Controllers {
     public class HomeController : Controller {
         private string selected_dir;
+
         static readonly ConfigModel config_model = new ConfigModel();
+        static readonly HomeModel home_model = new HomeModel();
+
         public ActionResult Index() {
-            return View();
+            return View(home_model);
         }
 
         public ActionResult Config() {
