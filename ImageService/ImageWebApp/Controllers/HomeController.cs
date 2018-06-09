@@ -11,6 +11,7 @@ namespace ImageWebApp.Controllers {
         static readonly ConfigModel config_model = new ConfigModel();
         static readonly LogsModel logs_model = new LogsModel();
         static readonly HomeModel home_model = new HomeModel();
+        static readonly PhotosModel photos_model = new PhotosModel();
 
         public ActionResult Index() {
             home_model.PicsCount(config_model.OutputDir);
@@ -27,7 +28,7 @@ namespace ImageWebApp.Controllers {
         public ActionResult Photos() {
             ViewBag.Message = "Service Photos.";
 
-            return View();
+            return View(photos_model);
         }
 
         public ActionResult Logs() {

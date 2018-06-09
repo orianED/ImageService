@@ -4,24 +4,44 @@
     ViewBag.Title = "Logs";
 }
 
-<assemblies>
-    <add assembly="ImageService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-</assemblies>
-
 <h2>Logs</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Types</th>
-            <th>Message</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var log in Model.Logs) {
+
+Search: <input type="text" id="input" onkeyup="Function()" placeholder="Search for types..">
+<script>
+function Function() {
+  // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("input");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+    <table class="table" id="table">
+        <thead>
             <tr>
-                <td width="100">  @Html.Raw(log.Item1) </td>
-                <td>  @Html.Raw(log.Item2) </td>
+                <th>Types</th>
+                <th>Message</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var log in Model.Logs) {
+                <tr>
+                    <td width="100">  @Html.Raw(log.Item1) </td>
+                    <td>  @Html.Raw(log.Item2) </td>
+                </tr>
+            }
+        </tbody>
+    </table>

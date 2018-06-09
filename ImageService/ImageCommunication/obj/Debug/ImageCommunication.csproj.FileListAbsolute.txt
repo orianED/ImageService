@@ -11,3 +11,9 @@ C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\bin\D
 C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\obj\Debug\ImageCommunication.csprojResolveAssemblyReference.cache
 C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\obj\Debug\ImageCommunication.dll
 C:\Users\Alihom\Source\Repos\ImageService2\ImageService\ImageCommunication\obj\Debug\ImageCommunication.pdb
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageCommunication\bin\Debug\ImageCommunication.dll.config
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageCommunication\bin\Debug\ImageCommunication.dll
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageCommunication\bin\Debug\ImageCommunication.pdb
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageCommunication\obj\Debug\ImageCommunication.csprojResolveAssemblyReference.cache
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageCommunication\obj\Debug\ImageCommunication.dll
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageCommunication\obj\Debug\ImageCommunication.pdb
