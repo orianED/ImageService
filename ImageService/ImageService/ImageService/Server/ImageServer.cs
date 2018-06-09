@@ -102,6 +102,7 @@ namespace ImageService.Server {
             } catch (Exception ex) {
                 Console.WriteLine(ex.ToString());
             }
+
         }
 
     }
