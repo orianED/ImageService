@@ -69,11 +69,14 @@ namespace ImageCommunication.Client {
             new Task(() => {
                 while (client.Connected) {
                     string msg;
-
-                    if ((msg = reader.ReadString()) != null) {
-                        DataRecievedEventsArgs dR = new DataRecievedEventsArgs();
-                        dR.Message = msg;
-                        DataRecieved?.Invoke(this, dR);
+                    try {
+                        if ((msg = reader.ReadString()) != null) {
+                            DataRecievedEventsArgs dR = new DataRecievedEventsArgs();
+                            dR.Message = msg;
+                            DataRecieved?.Invoke(this, dR);
+                        }
+                    }catch(IOException e) {
+                        e.ToString();
                     }
                 }
             }).Start();
