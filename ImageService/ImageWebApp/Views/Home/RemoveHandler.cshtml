@@ -8,5 +8,20 @@
     @ViewBag.Dir
 </p>
 
-<button id="OK" onclick="location.href='@Url.Action("RemoveOK", "Home", new { dir = ViewBag.Dir })'">OK</button>
-<button id="Cancel" onclick="location.href='@Url.Action("Config", "Home", new { })'">Cancel</button>
+<button id="OK">OK</button>
+<button id="Cancel">Cancel</button>
+
+<script class="text/javascript">
+    document.getElementById("OK").onclick = function () {
+        document.getElementById("OK").disabled = true;
+        document.getElementById("Cancel").disabled = true;
+        location.href = "RemoveOK";
+    }
+</script>
+<script class="text/javascript">
+    document.getElementById("Cancel").onclick = function () {
+        document.getElementById("OK").disabled = true;
+        document.getElementById("Cancel").disabled = true;
+        location.href = "Config";
+    }
+</script>

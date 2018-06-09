@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ImageWebApp.Controllers {
     public class HomeController : Controller {
+        static string selected_dir = "";
 
         static readonly ConfigModel config_model = new ConfigModel();
         static readonly LogsModel logs_model = new LogsModel();
@@ -40,16 +41,14 @@ namespace ImageWebApp.Controllers {
         public ActionResult RemoveHandler(string dir) {
             ViewBag.Message = "Remove Handler.";
             ViewBag.Dir = dir;
+            selected_dir = dir;
+
             return View(this);
         }
 
         public ActionResult RemoveOK(string dir) {
             ViewBag.Message = "Remove The Handler.";
-<<<<<<< HEAD
             config_model.OnRemove(selected_dir);
-=======
-            config_model.OnRemove(dir);
->>>>>>> parent of ad68624... bootsrap edit
 
             return RedirectToAction("Config", "Home");
         }
