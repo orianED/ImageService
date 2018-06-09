@@ -34,6 +34,7 @@ namespace ImageWebApp.Controllers {
 
         public ActionResult Logs() {
             ViewBag.Message = "Service Logs.";
+            logs_model.NewLogsRequest();
 
             return View(logs_model);
         }
@@ -46,7 +47,7 @@ namespace ImageWebApp.Controllers {
             return View(this);
         }
 
-        public ActionResult RemoveOK(string dir) {
+        public ActionResult RemoveOK() {
             ViewBag.Message = "Remove The Handler.";
             config_model.OnRemove(selected_dir);
 

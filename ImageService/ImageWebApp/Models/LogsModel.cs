@@ -11,10 +11,12 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Web;
 
 namespace ImageWebApp.Models {
     public class LogsModel {
+        public bool end_request;
 
         private IClient m_client;
         public List<Tuple<string, string>> Logs { get; set; }
@@ -52,6 +54,7 @@ namespace ImageWebApp.Models {
                         this.LogMessages.Add(LogMessage.FromJason(log));
                 }
                 FromLogMessages();
+                end_request = true;
             }
         }
 
@@ -60,6 +63,15 @@ namespace ImageWebApp.Models {
             foreach (LogMessage log in LogMessages) {
                 Logs.Add(new Tuple<string, string>(log.Type.ToString(), log.Message));
             }
+        }
+
+
+        public void NewLogsRequest() {
+            end_request = false;
+            if (!m_client.Connected())
+                return;
+            m_client.Send((new CommandRecievedEventArgs((int)CommandEnum.LogCommand, null, null)).ToJson());
+            SpinWait.SpinUntil(() => end_request);
         }
     }
 }
