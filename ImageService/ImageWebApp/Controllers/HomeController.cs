@@ -2,13 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
 namespace ImageWebApp.Controllers {
     public class HomeController : Controller {
+        static string selected_dir = "";
 
-        static readonly ConfigModel config_model = new ConfigModel();
+        static ConfigModel config_model = new ConfigModel();
         static readonly LogsModel logs_model = new LogsModel();
         static readonly HomeModel home_model = new HomeModel();
 
@@ -39,13 +41,13 @@ namespace ImageWebApp.Controllers {
         public ActionResult RemoveHandler(string dir) {
             ViewBag.Message = "Remove Handler.";
             ViewBag.Dir = dir;
+            selected_dir = dir;
             return View(this);
         }
 
-        public ActionResult RemoveOK(string dir) {
+        public ActionResult RemoveOK() {
             ViewBag.Message = "Remove The Handler.";
-            config_model.OnRemove(dir);
-
+            config_model.OnRemove(selected_dir);
             return RedirectToAction("Config", "Home");
         }
     }
