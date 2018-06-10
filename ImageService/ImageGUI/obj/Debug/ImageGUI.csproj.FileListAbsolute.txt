@@ -32,3 +32,30 @@ C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debu
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageCommunication.dll
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\bin\Debug\ImageCommunication.dll.config
 C:\Users\Orian Edri\Documents\GitHub\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI.csprojAssemblyReference.cache
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\ImageGUI.exe.config
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\ImageGUI.exe
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\ImageGUI.pdb
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\ImageCommunication.dll
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\ImageService.exe
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\ImageCommunication.pdb
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\ImageService.pdb
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\Microsoft.Practices.Prism.Mvvm.xml
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI.csprojResolveAssemblyReference.cache
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\Logs.g.cs
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\MainWindow.g.cs
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\Settings.g.cs
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\App.g.cs
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI_MarkupCompile.cache
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI_MarkupCompile.lref
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\Logs.baml
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\MainWindow.baml
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\Settings.baml
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI.g.resources
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI.Properties.Resources.resources
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI.csproj.GenerateResource.Cache
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI.exe
+C:\Users\Alihom\Source\Repos\ImageService\ImageService\ImageGUI\obj\Debug\ImageGUI.pdb

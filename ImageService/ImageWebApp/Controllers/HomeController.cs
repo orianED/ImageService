@@ -12,7 +12,7 @@ namespace ImageWebApp.Controllers {
         static readonly ConfigModel config_model = new ConfigModel();
         static readonly LogsModel logs_model = new LogsModel();
         static readonly HomeModel home_model = new HomeModel();
-        static readonly PhotosModel photos_model = new PhotosModel();
+        static readonly PhotosModel photos_model = new PhotosModel(config_model.OutputDir, config_model.ThumbnailSize);
 
         public ActionResult Index() {
             home_model.PicsCount(config_model.OutputDir);

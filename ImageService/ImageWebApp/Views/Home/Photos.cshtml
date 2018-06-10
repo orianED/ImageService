@@ -1,9 +1,20 @@
 ﻿@model ImageWebApp.Models.PhotosModel
 
 @{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Photos";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+@foreach (var pic in Model.Pictures) {
+    <div class="col-xs-18 col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img class="img-circle" src="/@pic["thumb"].Replace(Server.MapPath("~"),"").Replace("\\","/")" alt="Avatar">
+            <div class="caption">
+                <h4>Thumbnail label</h4>
+                <p>This photo take at the af shel bigi</p>
+                <p><a href="#" class="btn btn-info btn-xs" role="button">View</a> <a href="#" class="btn btn-default btn-xs" role="button">Delete</a></p>
+            </div>
+        </div>
+    </div>
+}
