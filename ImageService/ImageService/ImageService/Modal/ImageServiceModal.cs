@@ -59,18 +59,17 @@ namespace ImageService.Modal {
                     }
                     newImagePath = DuplicateCheck(path, datePath);
                     File.Copy(path, newImagePath);
-
+                    File.Delete(path);
 
                     //adding to thumbnails folder
                     if (!Directory.Exists(thumbDatePath)) {
                         Directory.CreateDirectory(thumbDatePath);
                     }
                     newThumbImagePath = DuplicateCheck(newImagePath, thumbDatePath);
-                    Image thumb = Image.FromFile(path);
+                    Image thumb = Image.FromStream(new MemoryStream(File.ReadAllBytes(newImagePath)));
                     thumb = (Image)(new Bitmap(thumb, new Size(this.m_thumbnailSize, this.m_thumbnailSize)));
                     thumb.Save(newThumbImagePath);
                     thumb.Dispose();
-                    File.Delete(path);
                 } else {
                     throw new Exception("File doesn't exists");
                 }
