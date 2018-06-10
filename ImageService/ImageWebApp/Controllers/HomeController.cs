@@ -31,6 +31,27 @@ namespace ImageWebApp.Controllers {
             return View(new PhotosModel(config_model.OutputDir, config_model.ThumbnailSize));
         }
 
+        public ActionResult ViewPhoto(string picture, string name, string date) {
+            ViewBag.picture = picture;
+            ViewBag.name = name;
+            ViewBag.date = date;
+            return View();
+        }
+
+        public ActionResult DeletePhoto(string picture, string name, string date) {
+            selected_pic = picture;
+            ViewBag.picture = picture;
+            ViewBag.name = name;
+            ViewBag.date = date;
+            return View();
+        }
+
+        public ActionResult DeleteOK() {
+            Photos_model.DeleteImage(selected_pic);
+
+            return RedirectToAction("Photos", "Home");
+        }
+
         public ActionResult Logs() {
             ViewBag.Message = "Service Logs.";
             logs_model.NewLogsRequest();
