@@ -10,18 +10,12 @@ using System.Web;
 
 namespace ImageWebApp.Models {
     public class HomeModel {
-        private IClient m_client;
         private List<string[]> students;
         private ServiceController m_sc;
 
         public HomeModel() {
-            try {
-                m_client = Client.GetInstance;
-                students = new List<string[]>();
-                this.ReadStudents();
-            } catch (Exception e) {
-                Debug.WriteLine("Connection Failure");
-            }
+            students = new List<string[]>();
+            this.ReadStudents();
         }
 
         public List<string[]> Students { get; set; }

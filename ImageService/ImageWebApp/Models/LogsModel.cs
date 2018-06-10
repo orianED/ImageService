@@ -16,11 +16,10 @@ using System.Web;
 
 namespace ImageWebApp.Models {
     public class LogsModel {
-        public bool end_request;
-
+        private bool end_request;
         private IClient m_client;
-        public List<Tuple<string, string>> Logs { get; set; }
 
+        public List<Tuple<string, string>> Logs { get; set; }
         public ObservableCollection<LogMessage> LogMessages { get; set; }
 
         /// <summary>
@@ -65,7 +64,6 @@ namespace ImageWebApp.Models {
                 Logs.Add(new Tuple<string, string>(log.Type.ToString(), log.Message));
             }
         }
-
 
         public void NewLogsRequest() {
             end_request = false;
