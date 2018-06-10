@@ -58,16 +58,19 @@ namespace ImageService.Modal {
                         Directory.CreateDirectory(datePath);
                     }
                     newImagePath = DuplicateCheck(path, datePath);
-                    File.Move(path, newImagePath);
+                    File.Copy(path, newImagePath);
+
 
                     //adding to thumbnails folder
                     if (!Directory.Exists(thumbDatePath)) {
                         Directory.CreateDirectory(thumbDatePath);
                     }
                     newThumbImagePath = DuplicateCheck(newImagePath, thumbDatePath);
-                    Image thumb = Image.FromFile(newImagePath);
+                    Image thumb = Image.FromFile(path);
                     thumb = (Image)(new Bitmap(thumb, new Size(this.m_thumbnailSize, this.m_thumbnailSize)));
                     thumb.Save(newThumbImagePath);
+                    thumb.Dispose();
+                    File.Delete(path);
                 } else {
                     throw new Exception("File doesn't exists");
                 }
@@ -89,6 +92,7 @@ namespace ImageService.Modal {
             using (Image myImage = Image.FromStream(fs, false, false)) {
                 PropertyItem propItem = myImage.GetPropertyItem(36867);
                 string dateTaken = r.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2);
+                myImage.Dispose();
                 return DateTime.Parse(dateTaken);
             }
         }
