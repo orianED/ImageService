@@ -1,12 +1,8 @@
-﻿using ImageCommunication.Client;
-using ImageCommunication.Events;
-using ImageService.Infrastructure.Enums;
-using Newtonsoft.Json.Linq;
+﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Web;
 
 namespace ImageWebApp.Models {
     public class PhotosModel {
@@ -16,16 +12,20 @@ namespace ImageWebApp.Models {
         public List<Dictionary<string, string>> Pictures;
 
         public PhotosModel(string Output, string ThumbnailSize) {
-            OutputDir = Output;
-            ThumbnailsDir = Path.Combine(Output, "Thumbnails");
-            Paths = Directory.GetFiles(ThumbnailsDir, "*", SearchOption.AllDirectories);
-            string tempStr;
             Pictures = new List<Dictionary<string, string>>();
-            foreach (string str in Paths) {
-                tempStr = str.Replace(ThumbnailsDir, "Images");
-                Pictures.Add(new Dictionary<string, string> {
+            try {
+                OutputDir = Output;
+                ThumbnailsDir = Path.Combine(Output, "Thumbnails");
+                Paths = Directory.GetFiles(ThumbnailsDir, "*", SearchOption.AllDirectories);
+                string tempStr;
+                foreach (string str in Paths) {
+                    tempStr = str.Replace(ThumbnailsDir, "Images");
+                    Pictures.Add(new Dictionary<string, string> {
                     {"thumb",str.Replace(OutputDir, "Images") }, {"picture", tempStr}
                 });
+                }
+            } catch (Exception e) {
+                Debug.WriteLine(e.ToString());
             }
         }
     }

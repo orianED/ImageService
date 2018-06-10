@@ -9,10 +9,9 @@ namespace ImageWebApp.Controllers {
     public class HomeController : Controller {
         static string selected_dir = "";
 
-        static readonly ConfigModel config_model = new ConfigModel();
+        static ConfigModel config_model = new ConfigModel();
         static readonly LogsModel logs_model = new LogsModel();
         static readonly HomeModel home_model = new HomeModel();
-        static readonly PhotosModel photos_model = new PhotosModel(config_model.OutputDir, config_model.ThumbnailSize);
 
         public ActionResult Index() {
             home_model.PicsCount(config_model.OutputDir);
@@ -29,7 +28,7 @@ namespace ImageWebApp.Controllers {
         public ActionResult Photos() {
             ViewBag.Message = "Service Photos.";
 
-            return View(photos_model);
+            return View(new PhotosModel(config_model.OutputDir, config_model.ThumbnailSize));
         }
 
         public ActionResult Logs() {

@@ -27,6 +27,7 @@ namespace ImageWebApp.Models {
         /// Constractur.
         /// </summary>
         public LogsModel() {
+            Logs = new List<Tuple<string, string>>();
             try {
                 m_client = Client.GetInstance;
                 m_client.DataRecieved += MessageRecieved;

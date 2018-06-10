@@ -17,7 +17,6 @@ namespace ImageWebApp.Models {
         public HomeModel() {
             try {
                 m_client = Client.GetInstance;
-                m_sc = new ServiceController("ImageService");
                 students = new List<string[]>();
                 this.ReadStudents();
             } catch (Exception e) {
@@ -29,6 +28,7 @@ namespace ImageWebApp.Models {
 
         public string ServiceStatus {
             get {
+                m_sc = new ServiceController("ImageService");
                 if (m_sc.Status == ServiceControllerStatus.Running)
                     return "Running";
                 return "Stopped";
@@ -38,6 +38,7 @@ namespace ImageWebApp.Models {
 
         public string StatusColor {
             get {
+                m_sc = new ServiceController("ImageService");
                 if (m_sc.Status == ServiceControllerStatus.Running)
                     return "Blue";
                 return "Red";

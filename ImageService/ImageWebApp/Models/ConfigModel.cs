@@ -31,7 +31,8 @@ namespace ImageWebApp.Models {
                 m_client.DataRecieved += MessageRecieved;
                 m_handlers = new ObservableCollection<string>();
                 m_client.Send((new CommandRecievedEventArgs((int)CommandEnum.GetConfigCommand, null, null)).ToJson());
-                SpinWait.SpinUntil(() => request_finished);
+                if (m_client.Connected())
+                    SpinWait.SpinUntil(() => request_finished);
             } catch (Exception e) {
                 Debug.WriteLine("Connection Failure");
             }
