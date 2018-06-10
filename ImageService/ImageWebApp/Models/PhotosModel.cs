@@ -4,9 +4,13 @@ using ImageService.Infrastructure.Enums;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.IO;
 using System.Linq;
 using System.Web;
+=======
+using System.IO;
+>>>>>>> didi
 
 namespace ImageWebApp.Models {
     public class PhotosModel {
@@ -21,12 +25,14 @@ namespace ImageWebApp.Models {
             Paths = Directory.GetFiles(ThumbnailsDir, "*", SearchOption.AllDirectories);
             string tempStr;
             Pictures = new List<Dictionary<string, string>>();
+<<<<<<< HEAD
             foreach (string str in Paths) {
                 tempStr = str.Replace(ThumbnailsDir, "Images");
                 Pictures.Add(new Dictionary<string, string> {
                     {"thumb",str.Replace(OutputDir, "Images") }, {"picture", tempStr}
+=======
+>>>>>>> didi
                 });
             }
         }
     }
-}
