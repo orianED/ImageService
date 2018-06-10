@@ -75,7 +75,7 @@ namespace ImageCommunication.Client {
                             dR.Message = msg;
                             DataRecieved?.Invoke(this, dR);
                         }
-                    }catch(IOException e) {
+                    } catch (IOException e) {
                         e.ToString();
                     }
                 }
