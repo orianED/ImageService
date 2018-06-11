@@ -52,10 +52,11 @@ namespace ImageWebApp.Controllers {
         /// <param name="name">The picture name.</param>
         /// <param name="date">The picture date.</param>
         /// <returns></returns>
-        public ActionResult ViewPhoto(string picture, string name, string date) {
+        public ActionResult ViewPhoto(string picture, string name, string date, string thumb) {
             ViewBag.picture = picture;
             ViewBag.name = name;
             ViewBag.date = date;
+            ViewBag.thumb = thumb;
             return View();
         }
 

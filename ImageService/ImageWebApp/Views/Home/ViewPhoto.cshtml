@@ -4,4 +4,6 @@
 
 <h2>@ViewBag.name</h2>
 <h3>@ViewBag.date</h3>
+<a href="@Url.Action("DeletePhoto", "Home", new { picture = ViewBag.thumb, name = ViewBag.name, date = ViewBag.date})" class="btn btn-danger btn-xs" role="button">Delete</a>
+<br />
 <img src="/@ViewBag.picture">

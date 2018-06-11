@@ -15,7 +15,7 @@
                     <h4>@pic["name"]</h4>
                     <p>@pic["date"]</p>
                     <p>
-                        <a href="@Url.Action("ViewPhoto", "Home", new { picture = pic["picture"].Replace(Server.MapPath("~"), "").Replace("\\", "/"), name = pic["name"], date = pic["date"] })" class="btn btn-info btn-xs" role="button">View</a>
+                        <a href="@Url.Action("ViewPhoto", "Home", new { picture = pic["picture"].Replace(Server.MapPath("~"), "").Replace("\\", "/"), name = pic["name"], date = pic["date"], thumb =pic["thumb"].Replace(Server.MapPath("~"), "").Replace("\\", "/")})" class="btn btn-info btn-xs" role="button">View</a>
                         <a href="@Url.Action("DeletePhoto", "Home", new { picture = pic["thumb"].Replace(Server.MapPath("~"), "").Replace("\\", "/"), name = pic["name"], date = pic["date"] })" class="btn btn-danger btn-xs" role="button">Delete</a>
                     </p>
                 </div>
