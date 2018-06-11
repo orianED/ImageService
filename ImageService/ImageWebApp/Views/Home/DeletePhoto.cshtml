@@ -4,29 +4,28 @@
 }
 
 <h2>Delete Photo</h2>
-<div class="col-md-3">
-    <h3>@ViewBag.name</h3>
-    <h4>@ViewBag.date</h4>
-</div>
-<div class="col-md-3">
+<div>
+    <h3>Are you sure yu want to delete this photo?</h3>
+    <h4>@ViewBag.name</h4>
+    <h5>@ViewBag.date</h5>
     <img src="/@ViewBag.picture">
 </div>
-<div>
+<footer class="row">
     <button id="OK">OK</button>
     <button id="Cancel">Cancel</button>
 
     <script class="text/javascript">
-    document.getElementById("OK").onclick = function () {
-        document.getElementById("OK").disabled = true;
-        document.getElementById("Cancel").disabled = true;
-        location.href = "DeleteOK";
-    }
+        document.getElementById("OK").onclick = function () {
+            document.getElementById("OK").disabled = true;
+            document.getElementById("Cancel").disabled = true;
+            location.href = "DeleteOK";
+        }
     </script>
     <script class="text/javascript">
-    document.getElementById("Cancel").onclick = function () {
-        document.getElementById("OK").disabled = true;
-        document.getElementById("Cancel").disabled = true;
-        location.href = "Photos";
-    }
+        document.getElementById("Cancel").onclick = function () {
+            document.getElementById("OK").disabled = true;
+            document.getElementById("Cancel").disabled = true;
+            location.href = "Photos";
+        }
     </script>
-</div>
+</footer>

@@ -201,6 +201,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Config.cshtml" />
     <Content Include="Views\Home\RemoveHandler.cshtml" />
+    <Content Include="Views\Home\ViewPhoto.cshtml" />
     <Content Include="Views\Home\DeletePhoto.cshtml" />
   </ItemGroup>
   <ItemGroup />

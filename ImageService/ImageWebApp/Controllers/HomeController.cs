@@ -8,10 +8,12 @@ using System.Web.Mvc;
 namespace ImageWebApp.Controllers {
     public class HomeController : Controller {
         static string selected_dir = "";
+        static string selected_pic = "";
 
         static ConfigModel config_model = new ConfigModel();
         static readonly LogsModel logs_model = new LogsModel();
         static readonly HomeModel home_model = new HomeModel();
+        static PhotosModel Photos_model = new PhotosModel(config_model.OutputDir, config_model.ThumbnailSize);
 
         public ActionResult Index() {
             home_model.PicsCount(config_model.OutputDir);
