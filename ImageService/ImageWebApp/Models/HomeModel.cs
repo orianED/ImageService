@@ -13,6 +13,9 @@ namespace ImageWebApp.Models {
         private List<string[]> students;
         private ServiceController m_sc;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeModel"/> class.
+        /// </summary>
         public HomeModel() {
             students = new List<string[]>();
             this.ReadStudents();
@@ -20,6 +23,12 @@ namespace ImageWebApp.Models {
 
         public List<string[]> Students { get; set; }
 
+        /// <summary>
+        /// Gets the service status.
+        /// </summary>
+        /// <value>
+        /// The service status.
+        /// </value>
         public string ServiceStatus {
             get {
                 m_sc = new ServiceController("ImageService");
@@ -27,9 +36,13 @@ namespace ImageWebApp.Models {
                     return "Running";
                 return "Stopped";
             }
-            set { }
         }
-
+        /// <summary>
+        /// Gets the color of the status.
+        /// </summary>
+        /// <value>
+        /// The color of the status.
+        /// </value>
         public string StatusColor {
             get {
                 m_sc = new ServiceController("ImageService");
@@ -37,13 +50,20 @@ namespace ImageWebApp.Models {
                     return "Blue";
                 return "Red";
             }
-            set { }
         }
-
+        /// <summary>
+        /// Gets or sets the number of transfered.
+        /// </summary>
+        /// <value>
+        /// The number of transfered.
+        /// </value>
         public int NumOfTransfered {
             get; set;
         }
-
+        /// <summary>
+        /// count the number of pictures transfered.
+        /// </summary>
+        /// <param name="outputDirectory">The output directory.</param>
         public void PicsCount(string outputDirectory) {
             NumOfTransfered = 0;
             if (outputDirectory == null || outputDirectory == "")
@@ -57,7 +77,9 @@ namespace ImageWebApp.Models {
                 NumOfTransfered += directoryName.GetFiles("*.gif", SearchOption.AllDirectories).Length;
             }
         }
-
+        /// <summary>
+        /// Reads the students file.
+        /// </summary>
         public void ReadStudents() {
             try {
                 string students_path = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "App_Data", "StudentsDetails.txt");

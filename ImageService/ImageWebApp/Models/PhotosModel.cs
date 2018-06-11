@@ -16,6 +16,11 @@ namespace ImageWebApp.Models {
         public string[] Paths { get; set; }
         public List<Dictionary<string, string>> Pictures;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PhotosModel"/> class and take all photos from the output dir.
+        /// </summary>
+        /// <param name="Output">The output.</param>
+        /// <param name="ThumbnailSize">Size of the thumbnail.</param>
         public PhotosModel(string Output, string ThumbnailSize) {
             Pictures = new List<Dictionary<string, string>>();
             try {
@@ -34,6 +39,11 @@ namespace ImageWebApp.Models {
             } catch { }
         }
 
+        /// <summary>
+        /// Generate creation/taken dates from file.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
         public DateTime DateFromPath(string path) {
             try {
                 using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
@@ -47,13 +57,15 @@ namespace ImageWebApp.Models {
             }
         }
 
+        /// <summary>
+        /// Deletes the image from the given app.
+        /// </summary>
+        /// <param name="thumb_path">The thumb path.</param>
         public void DeleteImage(string thumb_path) {
             try {
-                string path = thumb_path.Replace("Thumbnails/", "");
                 thumb_path = thumb_path.Replace("Images/", "");
-                path = path.Replace("Images/", "");
-                path = path.Replace("/", "\\");
                 thumb_path = thumb_path.Replace("/", "\\");
+                string path = thumb_path.Replace("Thumbnails\\", "");
                 path = Path.Combine(OutputDir, path);
                 thumb_path = Path.Combine(OutputDir, thumb_path);
                 File.Delete(path);

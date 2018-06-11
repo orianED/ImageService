@@ -58,6 +58,9 @@ namespace ImageWebApp.Models {
             }
         }
 
+        /// <summary>
+        /// Move the log message to other data structure..
+        /// </summary>
         private void FromLogMessages() {
             Logs = new List<Tuple<string, string>>();
             foreach (LogMessage log in LogMessages) {
@@ -65,6 +68,9 @@ namespace ImageWebApp.Models {
             }
         }
 
+        /// <summary>
+        /// Send new log request to the server and wait until get them.
+        /// </summary>
         public void NewLogsRequest() {
             end_request = false;
             if (!m_client.Connected())

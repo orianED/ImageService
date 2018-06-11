@@ -19,6 +19,9 @@ namespace ImageWebApp.Models {
         private bool request_finished;
         private ObservableCollection<string> m_handlers;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConfigModel"/> class and get the service config.
+        /// </summary>
         public ConfigModel() {
             request_finished = false;
             SourceName = "";
@@ -59,7 +62,11 @@ namespace ImageWebApp.Models {
         [Display(Name = "Handlers:")]
         public ObservableCollection<string> Handlers { get; set; }
 
-
+        /// <summary>
+        /// Handle the message recieved.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void MessageRecieved(object sender, DataRecievedEventsArgs e) {
             JObject json = JObject.Parse(e.Message);
             if ((int)CommandEnum.GetConfigCommand == Int32.Parse((string)json["CommandID"])) {
