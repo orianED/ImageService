@@ -30,7 +30,7 @@ namespace ImageWebApp.Models {
                 string tempStr;
                 foreach (string str in Paths) {
                     tempStr = str.Replace(ThumbnailsDir, "Images");
-                    DateTime date = DateFromPath(tempStr);
+                    DateTime date = DateFromPath(str);
                     Pictures.Add(new Dictionary<string, string> {
                     {"thumb",str.Replace(OutputDir, "Images") }, {"picture", tempStr},
                         { "name",  Path.GetFileNameWithoutExtension(tempStr)}, {"date", Path.Combine(date.Month.ToString(),date.Year.ToString()) }

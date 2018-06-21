@@ -41,9 +41,11 @@ namespace ImageCommunication.Handler {
                 new Task(() => {
                     while (m_client.Connected) {
                         Debug.WriteLine("client handler reading");
-                        if ((msg = reader.ReadString()) != null) {
+                        using (var memoryStream = new MemoryStream()) {
+                            streamer.CopyTo(memoryStream);
+                            var str = System.Text.Encoding.Default.GetString(memoryStream.ToArray());
                             DataRecievedEventsArgs dR = new DataRecievedEventsArgs();
-                            dR.Message = msg;
+                            dR.Message = str;
                             DataRecieved?.Invoke(this, dR);
                         }
                     }

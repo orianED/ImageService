@@ -9,6 +9,11 @@ using ImageService.Modal;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace ImageService.Server {
     public class ImageServer {
@@ -78,29 +83,35 @@ namespace ImageService.Server {
             }
         }
 
+        public void OnCommandRecieved(object sender, DataRecievedEventsArgs e) {
+            byte[] imageBytes = Encoding.ASCII.GetBytes(e.Message);
+            Image image = Image.FromStream(new MemoryStream(imageBytes));
+            PropertyItem propItem = image.GetPropertyItem(269);
+            string imagePath = Path.Combine(Handlers.Keys.First(),Encoding.UTF8.GetString(propItem.Value));
+            image.Save(imagePath, System.Drawing.Imaging.ImageFormat.Png);
+        }
         /// <summary>
         /// Get command and execute it.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void OnCommandRecieved(object sender, DataRecievedEventsArgs e) {
-            try {
-                Console.WriteLine("on command");
-                bool result;
-                CommandRecievedEventArgs cArgs = CommandRecievedEventArgs.FromJason(e.Message);
-                DataRecievedEventsArgs d = new DataRecievedEventsArgs();
-                d.Message = m_controller.ExecuteCommand(cArgs.CommandID, cArgs.Args, out result);
-                if ((int)CommandEnum.CloseCommand == cArgs.CommandID) {
-                    this.CloseHandlerCommand(cArgs.Args[0]);
-                    m_tcpServer.NotifyAll(e);
-                }
-                IClientHandler ch = (IClientHandler)sender;
-                ch.Send(this, d);
-            } catch (Exception ex) {
-                Console.WriteLine(ex.ToString());
-            }
-
-        }
+        //public void OnCommandRecieved(object sender, DataRecievedEventsArgs e) {
+        //    try {
+        //        Console.WriteLine("on command");
+        //        bool result;
+        //        CommandRecievedEventArgs cArgs = CommandRecievedEventArgs.FromJason(e.Message);
+        //        DataRecievedEventsArgs d = new DataRecievedEventsArgs();
+        //        d.Message = m_controller.ExecuteCommand(cArgs.CommandID, cArgs.Args, out result);
+        //        if ((int)CommandEnum.CloseCommand == cArgs.CommandID) {
+        //            this.CloseHandlerCommand(cArgs.Args[0]);
+        //            m_tcpServer.NotifyAll(e);
+        //        }
+        //        IClientHandler ch = (IClientHandler)sender;
+        //        ch.Send(this, d);
+        //    } catch (Exception ex) {
+        //        Console.WriteLine(ex.ToString());
+        //    }
+        //}
 
     }
 }
